@@ -358,15 +358,39 @@ footer {
     text-transform: uppercase;
 }
 
-/* Responsive Fixes */
-@media (max-width: 768px) {
-    nav { 
-        padding: 1.5rem 2rem; 
-    }
-    
-    .nav-links { 
-        display: none; /* Sembunyikan menu teks di mobile untuk sementara agar tidak menumpuk */
-    }
+    /* Responsive Fixes */
+    @media (max-width: 768px) {
+        nav { 
+            padding: 1rem 2rem; 
+            background-color: rgba(245, 245, 245, 0.95);
+            backdrop-filter: blur(10px);
+            flex-wrap: wrap; /* Izinkan menu turun ke bawah jika perlu */
+        }
+        
+        body:not(.light-mode) nav {
+            background-color: rgba(5, 5, 5, 0.95);
+        }
+        
+        .nav-links { 
+            display: flex; /* Tampilkan kembali di mobile */
+            width: 100%;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            order: 3; /* Pindahkan ke baris bawah setelah logo dan toggle */
+        }
+
+        .nav-links li a {
+            font-size: 0.75rem; /* Perkecil sedikit agar muat satu baris */
+        }
+
+        .logo {
+            order: 1;
+        }
+
+        .theme-toggle {
+            order: 2;
+        }
 
     .hero { 
         padding: 0 2rem; 
