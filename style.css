@@ -358,12 +358,47 @@ footer {
     text-transform: uppercase;
 }
 
-/* Responsive */
+/* Responsive Fixes */
 @media (max-width: 768px) {
-    nav { padding: 1.5rem 2rem; }
-    .hero { padding: 0 2rem; }
-    .work { padding: 4rem 2rem; }
-    .portfolio-grid { grid-template-columns: 1fr; gap: 2rem; }
-    footer { padding: 4rem 2rem 2rem; }
-    .nav-links { display: none; /* Can add a hamburger menu later */ }
+    nav { 
+        padding: 1.5rem 2rem; 
+    }
+    
+    .nav-links { 
+        display: none; /* Sembunyikan menu teks di mobile untuk sementara agar tidak menumpuk */
+    }
+
+    .hero { 
+        padding: 0 2rem; 
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr; /* Stack About dan Table secara vertikal */
+        gap: 2rem;
+    }
+
+    .work { 
+        padding: 4rem 2rem; 
+    }
+
+    .portfolio-grid { 
+        grid-template-columns: 1fr; 
+        gap: 2rem; 
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    footer { 
+        padding: 4rem 2rem 2rem; 
+    }
 }
