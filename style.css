@@ -361,10 +361,10 @@ footer {
     /* Responsive Fixes */
     @media (max-width: 768px) {
         nav { 
-            padding: 1rem 2rem; 
+            padding: 1rem 1.5rem; 
             background-color: rgba(245, 245, 245, 0.95);
             backdrop-filter: blur(10px);
-            flex-wrap: wrap; /* Izinkan menu turun ke bawah jika perlu */
+            flex-wrap: wrap;
         }
         
         body:not(.light-mode) nav {
@@ -372,16 +372,16 @@ footer {
         }
         
         .nav-links { 
-            display: flex; /* Tampilkan kembali di mobile */
+            display: flex;
             width: 100%;
             justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-            order: 3; /* Pindahkan ke baris bawah setelah logo dan toggle */
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+            order: 3;
         }
 
         .nav-links li a {
-            font-size: 0.75rem; /* Perkecil sedikit agar muat satu baris */
+            font-size: 0.7rem;
         }
 
         .logo {
@@ -393,22 +393,34 @@ footer {
         }
 
     .hero { 
-        padding: 0 2rem; 
+        padding: 0 1.5rem; 
         text-align: center;
         justify-content: center;
     }
 
     .hero h1 {
-        font-size: 3.5rem;
+        font-size: 3rem;
+    }
+
+    .about {
+        padding: 4rem 1.5rem;
     }
 
     .about-container {
-        grid-template-columns: 1fr; /* Stack About dan Table secara vertikal */
+        grid-template-columns: 1fr;
         gap: 2rem;
     }
 
+    .work-row {
+        font-size: 0.8rem;
+    }
+
+    .work-year {
+        width: 45px;
+    }
+
     .work { 
-        padding: 4rem 2rem; 
+        padding: 4rem 1.5rem; 
     }
 
     .portfolio-grid { 
@@ -423,6 +435,6 @@ footer {
     }
 
     footer { 
-        padding: 4rem 2rem 2rem; 
+        padding: 4rem 1.5rem 2rem; 
     }
 }
