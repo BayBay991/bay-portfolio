@@ -102,7 +102,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 4rem;
+    padding: 2rem clamp(1rem, 5vw, 4rem);
     position: fixed;
     width: 100%;
     top: 0;
@@ -129,6 +129,13 @@ body.light-mode .logo img {
     list-style: none;
     display: flex;
     gap: 2rem;
+    /* Tambahkan transition untuk visibilitas */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.nav-links.hidden {
+    opacity: 0;
+    pointer-events: none; /* Nonaktifkan interaksi saat tersembunyi */
 }
 
 .nav-links li a {
@@ -158,7 +165,11 @@ body.light-mode .logo img {
     height: 100vh;
     display: flex;
     align-items: center;
-    padding: 0 4rem;
+    justify-content: center; /* Menengahkan secara vertikal */
+    text-align: center; /* Menengahkan teks */
+    padding-top: 5rem; /* Memberi ruang dari navigasi */
+    padding-left: clamp(1rem, 5vw, 4rem);
+    padding-right: clamp(1rem, 5vw, 4rem);
 }
 
 .hero h1 {
@@ -195,7 +206,7 @@ body.light-mode .logo img {
 
 /* Work Section */
 .work {
-    padding: 6rem 4rem;
+    padding: 6rem clamp(1rem, 5vw, 4rem);
 }
 
 .section-title {
@@ -242,7 +253,7 @@ body.light-mode .project-image {
 
 /* About & Recent Work Table */
 .about {
-    padding: 6rem 4rem;
+    padding: 6rem clamp(1rem, 5vw, 4rem);
     background-color: var(--bg-color);
 }
 
@@ -302,17 +313,17 @@ body.light-mode .project-image {
 
 /* Footer */
 footer {
-    padding: 6rem 4rem 2rem;
+    padding: 6rem clamp(1rem, 5vw, 4rem) 2rem;
     border-top: 1px solid #222;
 }
 
 .footer-content h2 {
-    font-size: clamp(1.5rem, 5vw, 4rem);
+    font-size: clamp(2rem, 5vw, 4rem);
     margin-bottom: 2rem;
 }
 
 .email-link {
-    font-size: clamp(1rem, 3vw, 2.5rem);
+    font-size: clamp(1.2rem, 3vw, 2.5rem);
     font-family: var(--font-heading);
     border-bottom: 2px solid var(--accent);
     padding-bottom: 5px;
@@ -394,7 +405,7 @@ footer {
     }
 
     .hero h1 {
-        font-size: 2.8rem;
+        font-size: 2rem;
         line-height: 1.1;
     }
 
@@ -449,10 +460,136 @@ footer {
     }
 }
 
-/* Tablet Adjustment (Optional but helpful) */
-@media (min-width: 481px) and (max-width: 768px) {
-    nav { padding: 1.5rem 2rem; }
-    .hero, .about, .work, footer { padding: 4rem 2rem; }
-    .portfolio-grid { grid-template-columns: 1fr; }
-    .about-container { grid-template-columns: 1fr; }
+/* Tablet Adjustment */
+.mobile-menu-toggle {
+    display: none; /* Sembunyikan secara default */
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.8rem;
+    cursor: pointer;
+    outline: none;
+    z-index: 110; /* Pastikan di atas nav-links saat aktif */
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: flex; /* Ubah dari none ke flex */
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--bg-color);
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        font-size: 1.8rem;
+        transform: translateX(100%); /* Sembunyikan di luar layar */
+        transition: transform 0.3s ease-in-out;
+        opacity: 0; /* Mulai dengan opacity 0 */
+        pointer-events: none; /* Nonaktifkan interaksi saat tersembunyi */
+    }
+
+    .nav-links.active {
+        transform: translateX(0); /* Tampilkan saat aktif */
+        opacity: 1; /* Tampilkan dengan opacity 1 */
+        pointer-events: all; /* Aktifkan interaksi saat aktif */
+    }
+
+    .mobile-menu-toggle {
+        display: block; /* Tampilkan toggle di mobile */
+    }
+
+    /* Perbaikan untuk nav-links saat mobile */
+    .nav-links li a {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+
+    /* Agar theme-toggle tetap terlihat saat menu terbuka */
+    nav {
+        justify-content: space-between; /* Untuk memastikan toggle dan logo tetap di samping */
+    }
+
+    /* Media query yang sudah ada untuk 480px dan dibawahnya, disesuaikan */
+    @media (max-width: 480px) {
+        nav {
+            padding: 1rem;
+            flex-wrap: nowrap; /* Jangan wrap agar logo dan toggle tetap di satu baris */
+        }
+
+        .nav-links {
+            gap: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .nav-links li a {
+            font-size: 1.5rem;
+        }
+
+        .mobile-menu-toggle {
+            font-size: 1.5rem;
+        }
+
+        .theme-toggle {
+            font-size: 1rem;
+        }
+    }
+}
+
+/* Desktop Adjustments for larger screens */
+.back-to-top {
+    display: none; /* Sembunyikan secara default */
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: rgba(255, 255, 255, 0.2); /* Transparan */
+    backdrop-filter: blur(5px); /* Efek blur bubble */
+    color: var(--accent); /* Warna panah */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Border tipis */
+    border-radius: 50%; /* Bentuk lingkaran */
+    width: 50px; /* Ukuran desktop */
+    height: 50px;
+    font-size: 1.5rem;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 99;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Sedikit lebih solid saat hover */
+    transform: translateY(-5px) scale(1.05);
+}
+
+.back-to-top.show {
+    display: flex; /* Menggunakan flexbox untuk penengahan yang lebih baik */
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        line-height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 30px; /* Ukuran mobile */
+        height: 30px;
+        font-size: 1rem;
+        line-height: 30px;
+    }
 }

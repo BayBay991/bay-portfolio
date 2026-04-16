@@ -91,4 +91,46 @@ document.addEventListener('DOMContentLoaded', () => {
             themeToggle.textContent = '☀️';
         }
     });
+
+    // Mobile Menu Toggle Logic
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Mengubah ikon toggle (opsional)
+            if (navLinks.classList.contains('active')) {
+                mobileMenuToggle.textContent = '✕'; // Ikon silang
+            } else {
+                mobileMenuToggle.textContent = '☰'; // Ikon hamburger
+            }
+        });
+
+        // Menutup menu ketika link diklik
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.textContent = '☰'; // Kembali ke ikon hamburger
+            });
+        });
+    }
+
+    // Back to Top Button Logic
+    const backToTopButton = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) { // Tampilkan tombol setelah scroll 300px
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 });
