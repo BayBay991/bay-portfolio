@@ -28,22 +28,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Back to Top Button Logic
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    const applyTheme = (theme) => {
+        if (theme === 'light') {
+            body.classList.add('light-mode');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Ikon bulan untuk mode terang
+        } else {
+            body.classList.remove('light-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Ikon matahari untuk mode gelap
+        }
+    };
+
+    // Check localStorage for saved theme preference or default to dark
+    const savedTheme = localStorage.getItem('theme');
+    applyTheme(savedTheme || 'dark');
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('theme', newTheme);
+            applyTheme(newTheme);
+        });
+    }
+
+    // Back to Top and WhatsApp Button Logic
     const backToTopButton = document.getElementById('back-to-top');
     const whatsappButton = document.getElementById('whatsapp-button');
 
     const toggleVisibility = () => {
         if (window.scrollY > 300) {
-            if (backToTopButton) backToTopButton.classList.remove('hide');
-            if (whatsappButton) whatsappButton.classList.remove('hide');
+            if (backToTopButton) backToTopButton.classList.add('show');
+            if (whatsappButton) whatsappButton.classList.add('show');
         } else {
-            if (backToTopButton) backToTopButton.classList.add('hide');
-            if (whatsappButton) whatsappButton.classList.add('hide');
+            if (backToTopButton) backToTopButton.classList.remove('show');
+            if (whatsappButton) whatsappButton.classList.remove('show');
         }
     };
 
     window.addEventListener('scroll', toggleVisibility);
-    toggleVisibility(); // Initial check
+    toggleVisibility(); // Initial check on load
 
     if (backToTopButton) {
         backToTopButton.addEventListener('click', () => {

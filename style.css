@@ -5,23 +5,44 @@
     box-sizing: border-box;
 }
 
+/* Theme Variables */
 :root {
-    --primary-color: #2c3e50; /* Dark blue/grey */
-    --secondary-color: #3498db; /* Blue */
-    --accent-color: #e74c3c; /* Red */
-    --text-color: #ecf0f1; /* Light grey */
-    --bg-color-dark: #202c39; /* Darker background */
-    --bg-color-light: #f4f7f6; /* Light background */
+    /* Dark Mode (Default) */
+    --bg-primary: #202c39; /* Darker background */
+    --bg-secondary: #2c3e50; /* Primary color for navbar, cards, contact section */
+    --text-main: #ecf0f1; /* Light grey text */
+    --text-muted: #aaa;
+    --accent-blue: #3498db; /* Blue accent for buttons, links */
+    --accent-red: #e74c3c; /* Red accent */
+    --input-bg: #334354;
+    --input-border: #555;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+
+    /* Fonts */
     --font-primary: 'Montserrat', sans-serif;
     --font-secondary: 'Playfair Display', serif;
+}
+
+/* Light Mode Overrides */
+body.light-mode {
+    --bg-primary: #f4f7f6; /* Light background */
+    --bg-secondary: #ffffff; /* White for navbar, cards, contact section */
+    --text-main: #333333; /* Dark text */
+    --text-muted: #555;
+    --accent-blue: #2980b9; /* Slightly darker blue for light mode contrast */
+    --accent-red: #c0392b;
+    --input-bg: #f9f9f9;
+    --input-border: #ccc;
+    --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 body {
     font-family: var(--font-primary);
     line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color-dark);
+    color: var(--text-main);
+    background-color: var(--bg-primary);
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -39,7 +60,7 @@ body {
     font-size: 2.8rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: var(--text-color);
+    color: var(--text-main);
 }
 
 /* Buttons */
@@ -49,41 +70,42 @@ body {
     border-radius: 5px;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .btn-primary {
-    background-color: var(--secondary-color);
+    background-color: var(--accent-blue);
     color: #fff;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid var(--accent-blue);
 }
 
 .btn-primary:hover {
-    background-color: #2980b9;
-    border-color: #2980b9;
+    background-color: var(--primary-color-hover);
+    border-color: var(--primary-color-hover);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);
+    color: var(--accent-blue);
+    border: 1px solid var(--accent-blue);
 }
 
 .btn-secondary:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--accent-blue);
     color: #fff;
 }
 
 /* Navbar */
 .navbar {
-    background-color: var(--primary-color);
+    background-color: var(--bg-secondary);
     padding: 1rem 0;
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: background-color 0.3s ease;
 }
 
 .navbar .container {
@@ -93,15 +115,9 @@ body {
 }
 
 .navbar-brand img {
-    height: 40px; /* Atur tinggi logo gambar */
+    height: 40px;
     width: auto;
     vertical-align: middle;
-}
-
-.navbar-brand {
-    /* Hapus font-size, color, text-decoration, font-weight karena sekarang pakai gambar */
-    text-decoration: none;
-    font-weight: 700;
 }
 
 .navbar-toggler {
@@ -120,7 +136,7 @@ body {
     display: block;
     width: 100%;
     height: 3px;
-    background-color: var(--text-color);
+    background-color: var(--text-main);
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
 }
@@ -148,14 +164,29 @@ body {
 }
 
 .nav-item .nav-link {
-    color: var(--text-color);
+    color: var(--text-main);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-item .nav-link:hover {
-    color: var(--secondary-color);
+    color: var(--accent-blue);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.5rem;
+    cursor: pointer;
+    outline: none;
+    margin-left: 1rem; /* Jarak dari toggler atau nav-links */
+    transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-blue);
 }
 
 /* Hero Section */
@@ -175,7 +206,7 @@ body {
 
 .hero-subtitle {
     font-size: 1.2rem;
-    color: var(--secondary-color);
+    color: var(--accent-blue);
     margin-bottom: 0.5rem;
 }
 
@@ -184,15 +215,21 @@ body {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     margin-bottom: 1.5rem;
     line-height: 1.2;
+    color: var(--text-main);
 }
 
 .hero-description {
     font-size: 1.1rem;
-    color: var(--text-color);
+    color: var(--text-main);
     margin-bottom: 2.5rem;
 }
 
 /* About Section */
+.about-section {
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease;
+}
+
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -207,33 +244,28 @@ body {
     border-radius: 50%; /* Membuat gambar lingkaran */
     display: block;
     margin: 0 auto; /* Tengah gambar */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 15px var(--shadow-color);
 }
 
 .about-text h3 {
     font-family: var(--font-secondary);
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    color: var(--secondary-color);
+    color: var(--accent-blue);
 }
 
 .about-text p {
     margin-bottom: 1rem;
+    color: var(--text-main);
 }
 
 /* Portfolio Section */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
 .portfolio-item {
-    background-color: var(--primary-color);
+    background-color: var(--bg-secondary);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .portfolio-item:hover {
@@ -255,24 +287,25 @@ body {
     font-family: var(--font-secondary);
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
-    color: var(--text-color);
+    color: var(--text-main);
 }
 
 .portfolio-info p {
     font-size: 0.9rem;
-    color: var(--text-color);
+    color: var(--text-main);
 }
 
 /* Contact Section */
 .contact-section {
-    background-color: var(--primary-color);
+    background-color: var(--bg-secondary);
     text-align: center;
+    transition: background-color 0.3s ease;
 }
 
 .contact-description {
     font-size: 1.1rem;
     margin-bottom: 2rem;
-    color: var(--text-color);
+    color: var(--text-main);
 }
 
 .contact-form {
@@ -286,16 +319,17 @@ body {
 .form-group input, .form-group textarea {
     width: 100%;
     padding: 1rem;
-    border: 1px solid #555;
-    background-color: #334354;
-    color: #fff;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text-main);
     border-radius: 5px;
     font-family: var(--font-primary);
     font-size: 1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .form-group input::placeholder, .form-group textarea::placeholder {
-    color: #bbb;
+    color: var(--text-muted);
 }
 
 .contact-form .btn-primary {
@@ -307,11 +341,12 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #1a242f;
+    background-color: #1a242f; /* Ini mungkin perlu disesuaikan dengan variabel tema juga */
     padding: 2.5rem 0;
     text-align: center;
-    color: #aaa;
+    color: var(--text-muted);
     font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .footer .container {
@@ -328,13 +363,13 @@ body {
 }
 
 .social-icons a {
-    color: #aaa;
+    color: var(--text-muted);
     font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: var(--secondary-color);
+    color: var(--accent-blue);
 }
 
 /* Floating Buttons */
@@ -346,16 +381,21 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    display: flex;
+    display: none; /* Sembunyikan secara default */
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
     color: #fff;
     cursor: pointer;
     z-index: 999;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px var(--shadow-color);
     transition: all 0.3s ease;
     text-decoration: none; /* Pastikan tidak ada underline */
+}
+
+.whatsapp-button.show,
+.back-to-top.show {
+    display: flex; /* Tampilkan saat class 'show' ditambahkan */
 }
 
 .whatsapp-button {
@@ -381,10 +421,6 @@ body {
     transform: translateY(-5px) scale(1.05);
 }
 
-.whatsapp-button.hide, .back-to-top.hide {
-    display: none;
-}
-
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .navbar-toggler {
@@ -398,8 +434,8 @@ body {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: var(--primary-color);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        background-color: var(--bg-secondary); /* Menggunakan variabel tema */
+        box-shadow: 0 2px 5px var(--shadow-color);
     }
 
     .navbar-menu.active {
