@@ -6,590 +6,496 @@
 }
 
 :root {
-    --bg-color: #050505;
-    --text-main: #f0f0f0;
-    --text-muted: #888888;
-    --accent: #ffffff;
-    --font-heading: 'Syne', sans-serif;
-    --font-body: 'Inter', sans-serif;
-}
-
-/* Light Mode Override */
-body.light-mode {
-    --bg-color: #f5f5f5;
-    --text-main: #050505;
-    --text-muted: #555555;
-    --accent: #000000;
-}
-
-body.light-mode::before {
-    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), #ffffff 0%, #cccccc 80%);
+    --primary-color: #2c3e50; /* Dark blue/grey */
+    --secondary-color: #3498db; /* Blue */
+    --accent-color: #e74c3c; /* Red */
+    --text-color: #ecf0f1; /* Light grey */
+    --bg-color-dark: #202c39; /* Darker background */
+    --bg-color-light: #f4f7f6; /* Light background */
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Playfair Display', serif;
 }
 
 body {
-    background-color: #000000;
-    color: var(--text-main);
-    font-family: var(--font-body);
+    font-family: var(--font-primary);
     line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color-dark);
     overflow-x: hidden;
-    cursor: none;
-    width: 100%;
 }
 
-/* Background Gradient & Blur Effect */
-body::before {
-    content: "";
-    position: fixed;
-    top: -10%;
-    left: -10%;
-    width: 120%;
-    height: 120%;
-    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), #2e2e2e 0%, #000000 80%);
-    filter: blur(60px);
-    z-index: -1;
-    pointer-events: none;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
-/* Custom Cursor */
-.cursor {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--accent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
-}
-
-.cursor.hovered {
-    width: 60px;
-    height: 60px;
-    background-color: var(--accent);
-    opacity: 0.2;
-}
-
-.cursor.clicked {
-    width: 15px;
-    height: 15px;
-    background-color: var(--accent);
-    opacity: 0.8;
-}
-
-a, button, .project-card {
-    cursor: none;
-}
-
-/* Typography */
-h1, h2, h3, .logo {
-    font-family: var(--font-heading);
-    text-transform: uppercase;
-}
-
-a {
-    text-decoration: none;
-    color: var(--text-main);
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--text-muted);
-}
-
-/* Navigation */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem clamp(1rem, 5vw, 4rem);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 100;
-    transition: all 0.3s ease;
-}
-
-body.light-mode nav {
-    background-color: rgba(245, 245, 245, 0.8);
-    backdrop-filter: blur(10px);
-}
-
-.logo img {
-    height: 35px;
-    width: auto;
-    filter: invert(1);
-}
-
-body.light-mode .logo img {
-    filter: invert(0);
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    /* Tambahkan transition untuk visibilitas */
-    transition: opacity 0.3s ease-in-out;
-}
-
-.nav-links.hidden {
-    opacity: 0;
-    pointer-events: none; /* Nonaktifkan interaksi saat tersembunyi */
-}
-
-.nav-links li a {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-main);
-}
-
-/* Theme Toggle Button */
-.theme-toggle {
-    background: none;
-    border: none;
-    color: var(--text-main);
-    font-size: 1.5rem;
-    cursor: none;
-    outline: none;
-    transition: transform 0.3s ease;
-}
-
-.theme-toggle:hover {
-    transform: scale(1.1);
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Menengahkan secara vertikal */
-    text-align: center; /* Menengahkan teks */
-    padding-top: 5rem; /* Memberi ruang dari navigasi */
-    padding-left: clamp(1rem, 5vw, 4rem);
-    padding-right: clamp(1rem, 5vw, 4rem);
-}
-
-.hero h1 {
-    font-size: clamp(3rem, 8vw, 8rem);
-    line-height: 1;
-    margin-bottom: 1.5rem;
-    font-weight: 800;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    max-width: 500px;
-    margin-bottom: 3rem;
-}
-
-.btn {
-    display: inline-block;
-    border: 1px solid var(--accent);
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease;
-}
-
-.btn:hover {
-    background-color: var(--accent);
-    color: var(--bg-color);
-}
-
-/* Work Section */
-.work {
-    padding: 6rem clamp(1rem, 5vw, 4rem);
+.section-padding {
+    padding: 6rem 0;
 }
 
 .section-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    margin-bottom: 4rem;
+    font-family: var(--font-secondary);
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: 1px solid var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 40px; /* Atur tinggi logo gambar */
+    width: auto;
+    vertical-align: middle;
+}
+
+.navbar-brand {
+    /* Hapus font-size, color, text-decoration, font-weight karena sekarang pakai gambar */
+    text-decoration: none;
     font-weight: 700;
 }
 
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;
-}
-
-.project-card {
+.navbar-toggler {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
     cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    padding: 0;
 }
 
-.project-image {
+.navbar-toggler span {
+    display: block;
     width: 100%;
-    aspect-ratio: 4/5;
-    background-color: #222;
-    margin-bottom: 1.5rem;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+    height: 3px;
+    background-color: var(--text-color);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
 }
 
-body.light-mode .project-image {
-    background-color: #e0e0e0;
+.navbar-toggler.active span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
 }
 
-.project-card:hover .project-image {
-    transform: scale(0.98);
+.navbar-toggler.active span:nth-child(2) {
+    opacity: 0;
 }
 
-.project-info h3 {
-    font-size: 1.5rem;
+.navbar-toggler.active span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+.navbar-menu {
+    display: flex;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-item .nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-item .nav-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/hero-bg.jpg') no-repeat center center/cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
     margin-bottom: 0.5rem;
 }
 
-.project-info p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
+.hero-title {
+    font-family: var(--font-secondary);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
 }
 
-/* About & Recent Work Table */
-.about {
-    padding: 6rem clamp(1rem, 5vw, 4rem);
-    background-color: var(--bg-color);
+.hero-description {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 2.5rem;
 }
 
-.about-container {
+/* About Section */
+.about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px; /* Batasi ukuran gambar */
+    height: auto;
+    border-radius: 50%; /* Membuat gambar lingkaran */
+    display: block;
+    margin: 0 auto; /* Tengah gambar */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.about-text h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
 }
 
 .about-text p {
-    font-size: 1.1rem;
-    color: var(--text-main);
     margin-bottom: 1rem;
 }
 
-.recent-work-table {
-    border-top: 1px solid var(--text-muted);
+/* Portfolio Section */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
-.table-title {
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    margin: 1.5rem 0;
-    color: var(--text-muted);
-    text-transform: uppercase;
+.portfolio-item {
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
-.work-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid rgba(136, 136, 136, 0.2);
-    transition: padding-left 0.3s ease;
+.portfolio-item:hover {
+    transform: translateY(-5px);
 }
 
-.work-row:hover {
-    padding-left: 10px;
-    color: var(--accent);
+.portfolio-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
 }
 
-.work-year {
-    width: 60px;
-    font-size: 0.8rem;
-    color: var(--text-muted);
+.portfolio-info {
+    padding: 1.5rem;
 }
 
-.work-name {
-    flex-grow: 1;
-    font-weight: 500;
+.portfolio-info h4 {
+    font-family: var(--font-secondary);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
 }
 
-.work-type {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-}
-
-/* Footer */
-footer {
-    padding: 6rem clamp(1rem, 5vw, 4rem) 2rem;
-    border-top: 1px solid #222;
-}
-
-.footer-content h2 {
-    font-size: clamp(2rem, 5vw, 4rem);
-    margin-bottom: 2rem;
-}
-
-.email-link {
-    font-size: clamp(1.2rem, 3vw, 2.5rem);
-    font-family: var(--font-heading);
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 5px;
-}
-
-.footer-bottom {
-    margin-top: 8rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--text-muted);
+.portfolio-info p {
     font-size: 0.9rem;
+    color: var(--text-color);
 }
 
-.socials {
+/* Contact Section */
+.contact-section {
+    background-color: var(--primary-color);
+    text-align: center;
+}
+
+.contact-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
     display: flex;
+    flex-direction: column;
     gap: 1.5rem;
 }
 
-.socials a {
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #555;
+    background-color: #334354;
+    color: #fff;
+    border-radius: 5px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+}
+
+.form-group input::placeholder, .form-group textarea::placeholder {
+    color: #bbb;
+}
+
+.contact-form .btn-primary {
+    width: auto;
+    align-self: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #1a242f;
+    padding: 2.5rem 0;
+    text-align: center;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.footer .container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--text-muted);
-    border-radius: 50%;
-    transition: all 0.3s ease;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-.socials a:hover {
-    border-color: var(--accent);
-    color: var(--bg-color);
-    background-color: var(--accent);
-    transform: translateY(-3px);
+.social-icons {
+    display: flex;
+    gap: 1rem;
 }
 
-/* SPECIFIC FIX FOR 480PX AND BELOW */
-@media (max-width: 480px) {
-    body { cursor: auto; }
-    .cursor { display: none; }
-
-    nav {
-        padding: 1rem;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        background-color: var(--bg-color);
-        position: fixed; /* Keep it fixed but smaller */
-    }
-
-    .logo img {
-        height: 25px;
-    }
-
-    .nav-links {
-        width: 100%;
-        margin-top: 1rem;
-        justify-content: space-between;
-        gap: 0.2rem;
-        border-top: 1px solid rgba(136,136,136,0.2);
-        padding-top: 0.8rem;
-    }
-
-    .nav-links li a {
-        font-size: 0.65rem;
-        letter-spacing: 0;
-    }
-
-    .theme-toggle {
-        font-size: 1.2rem;
-    }
-
-    .hero {
-        padding: 0 1rem;
-        height: auto;
-        min-height: 100vh;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-        line-height: 1.1;
-    }
-
-    .hero p {
-        font-size: 0.95rem;
-        margin-bottom: 2rem;
-    }
-
-    .about, .work, footer {
-        padding: 3rem 1rem;
-    }
-
-    .about-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .about-text p {
-        font-size: 1rem;
-    }
-
-    .recent-work-table {
-        margin-top: 1rem;
-    }
-
-    .work-row {
-        padding: 1rem 0;
-        font-size: 0.7rem;
-    }
-
-    .work-year { width: 35px; }
-
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .project-info h3 { font-size: 1.2rem; }
-
-    .footer-content h2 {
-        font-size: 1.8rem;
-    }
-
-    .email-link {
-        font-size: 1.1rem;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        margin-top: 4rem;
-        gap: 2rem;
-    }
+.social-icons a {
+    color: #aaa;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
 }
 
-/* Tablet Adjustment */
-.mobile-menu-toggle {
-    display: none; /* Sembunyikan secara default */
-    background: none;
-    border: none;
-    color: var(--text-main);
-    font-size: 1.8rem;
-    cursor: pointer;
-    outline: none;
-    z-index: 110; /* Pastikan di atas nav-links saat aktif */
+.social-icons a:hover {
+    color: var(--secondary-color);
 }
 
-@media (max-width: 768px) {
-    .nav-links {
-        display: flex; /* Ubah dari none ke flex */
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: var(--bg-color);
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
-        font-size: 1.8rem;
-        transform: translateX(100%); /* Sembunyikan di luar layar */
-        transition: transform 0.3s ease-in-out;
-        opacity: 0; /* Mulai dengan opacity 0 */
-        pointer-events: none; /* Nonaktifkan interaksi saat tersembunyi */
-    }
-
-    .nav-links.active {
-        transform: translateX(0); /* Tampilkan saat aktif */
-        opacity: 1; /* Tampilkan dengan opacity 1 */
-        pointer-events: all; /* Aktifkan interaksi saat aktif */
-    }
-
-    .mobile-menu-toggle {
-        display: block; /* Tampilkan toggle di mobile */
-    }
-
-    /* Perbaikan untuk nav-links saat mobile */
-    .nav-links li a {
-        font-size: 1.8rem;
-        letter-spacing: 2px;
-    }
-
-    /* Agar theme-toggle tetap terlihat saat menu terbuka */
-    nav {
-        justify-content: space-between; /* Untuk memastikan toggle dan logo tetap di samping */
-    }
-
-    /* Media query yang sudah ada untuk 480px dan dibawahnya, disesuaikan */
-    @media (max-width: 480px) {
-        nav {
-            padding: 1rem;
-            flex-wrap: nowrap; /* Jangan wrap agar logo dan toggle tetap di satu baris */
-        }
-
-        .nav-links {
-            gap: 2rem;
-            font-size: 1.5rem;
-        }
-
-        .nav-links li a {
-            font-size: 1.5rem;
-        }
-
-        .mobile-menu-toggle {
-            font-size: 1.5rem;
-        }
-
-        .theme-toggle {
-            font-size: 1rem;
-        }
-    }
-}
-
-/* Desktop Adjustments for larger screens */
+/* Floating Buttons */
+.whatsapp-button,
 .back-to-top {
-    display: none; /* Sembunyikan secara default */
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background-color: rgba(255, 255, 255, 0.2); /* Transparan */
-    backdrop-filter: blur(5px); /* Efek blur bubble */
-    color: var(--accent); /* Warna panah */
-    border: 1px solid rgba(255, 255, 255, 0.4); /* Border tipis */
-    border-radius: 50%; /* Bentuk lingkaran */
-    width: 50px; /* Ukuran desktop */
+    width: 50px;
     height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1.5rem;
-    line-height: 50px;
-    text-align: center;
+    color: #fff;
     cursor: pointer;
-    z-index: 99;
+    z-index: 999;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
+    text-decoration: none; /* Pastikan tidak ada underline */
 }
 
-.back-to-top:hover {
-    background-color: rgba(255, 255, 255, 0.3); /* Sedikit lebih solid saat hover */
+.whatsapp-button {
+    background-color: rgba(37, 211, 102, 0.7); /* Warna WhatsApp transparan */
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    bottom: 8rem; /* Di atas tombol back-to-top */
+}
+
+.whatsapp-button:hover {
+    background-color: rgba(37, 211, 102, 0.9);
     transform: translateY(-5px) scale(1.05);
 }
 
-.back-to-top.show {
-    display: flex; /* Menggunakan flexbox untuk penengahan yang lebih baik */
-    justify-content: center;
-    align-items: center;
+.back-to-top {
+    background-color: rgba(255, 255, 255, 0.2); /* Transparan */
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
+.back-to-top:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px) scale(1.05);
+}
+
+.whatsapp-button.hide, .back-to-top.hide {
+    display: none;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
+    .navbar-toggler {
+        display: flex;
+    }
+
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .nav-item {
+        margin: 0.5rem 0;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about-image {
+        order: -1; /* Pindahkan gambar ke atas di mobile */
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 0 1rem;
+    }
+
+    .whatsapp-button {
+        bottom: 6.5rem;
+        right: 1.5rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
     .back-to-top {
         bottom: 1.5rem;
         right: 1.5rem;
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
-        line-height: 40px;
+    }
+
+    .footer .container {
+        flex-direction: column;
     }
 }
 
 @media (max-width: 480px) {
+    .section-padding {
+        padding: 4rem 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .about-text h3 {
+        font-size: 1.5rem;
+    }
+
+    .portfolio-info h4 {
+        font-size: 1.2rem;
+    }
+
+    .whatsapp-button {
+        bottom: 5rem;
+        right: 1rem;
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+
     .back-to-top {
         bottom: 1rem;
         right: 1rem;
-        width: 30px; /* Ukuran mobile */
+        width: 30px;
         height: 30px;
         font-size: 1rem;
-        line-height: 30px;
     }
 }
