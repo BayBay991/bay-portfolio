@@ -280,26 +280,114 @@ body {
 
 /* About Section */
 .about-section {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-primary); /* Latar belakang gelap untuk bagian About */
     transition: background-color 0.3s ease;
-    padding: 6rem 0; /* Ensure padding is applied */
+    padding: 6rem 0; /* Pastikan padding diaplikasikan */
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns for larger screens */
+    grid-template-columns: 1fr 1fr; /* Dua kolom untuk teks dan gambar */
     gap: 3rem;
     align-items: center;
+    text-align: left; /* Teks rata kiri */
 }
 
-.about-image img {
+.about-image {
+    text-align: center; /* Pusatkan gambar dalam kolomnya */
+}
+
+.about-image img.profile-picture { /* Menggunakan kelas yang sudah ada */
     width: 100%;
-    max-width: 400px; /* Limit image size */
+    max-width: 300px; /* Sesuaikan ukuran gambar profil agar pas dan terlihat bagus */
     height: auto;
-    border-radius: 50%; /* Circular image */
+    border-radius: 50%; /* Membuat gambar lingkaran */
     display: block;
-    margin: 0 auto; /* Center image */
-    box-shadow: 0 8px 15px var(--shadow-color);
+    margin: 0 auto; /* Pusatkan gambar dalam elemen `.about-image` */
+    box-shadow: 0 15px 30px var(--shadow-color); /* Bayangan lebih menonjol */
+    border: 6px solid var(--accent-blue); /* Border untuk memisahkan dari latar */
+}
+
+.about-text h3 {
+    font-family: var(--font-secondary);
+    font-size: 2rem; /* Ukuran font yang lebih besar untuk judul */
+    margin-bottom: 1.5rem;
+    color: var(--text-main); /* Gunakan warna teks utama */
+}
+
+.about-text p {
+    margin-bottom: 2rem; /* Lebih banyak ruang di bawah paragraf */
+    color: var(--text-muted); /* Gunakan warna muted untuk deskripsi */
+    font-size: 1.1rem; /* Ukuran font paragraf sedikit lebih besar */
+    line-height: 1.7; /* Spasi antar baris yang lebih baik */
+}
+
+
+/* Stats Container for Experience Numbers */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tiga kolom untuk statistik */
+    gap: 2rem; /* Jarak antar statistik */
+    margin-top: 2.5rem; /* Jarak dari paragraf */
+    background-color: var(--bg-secondary); /* Latar belakang gelap untuk wadah statistik */
+    padding: 2rem; /* Padding di dalam wadah */
+    border-radius: 10px; /* Sudut membulat untuk wadah statistik */
+    box-shadow: 0 10px 25px var(--shadow-color); /* Bayangan untuk wadah statistik */
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* Menghapus background dan shadow dari `.stat-item` karena sudah ada di `.stats-container` */
+}
+
+.stat-number {
+    font-size: 3rem; /* Ukuran font lebih besar untuk angka */
+    font-weight: 700;
+    font-family: var(--font-secondary); /* Gunakan font sekunder untuk angka */
+    color: var(--accent-blue); /* Warna aksen untuk angka */
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted); /* Warna muted untuk label */
+    text-transform: uppercase; /* Label dalam huruf kapital */
+    letter-spacing: 0.5px; /* Jarak antar huruf sedikit */
+}
+
+/* Responsive adjustments for About Section */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        text-align: center;
+    }
+
+    .about-image {
+        order: -1; /* Move image to the top on mobile */
+        margin-bottom: 2rem;
+    }
+
+    .about-image img.profile-picture {
+        max-width: 250px; /* Smaller image on mobile */
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr; /* Stack stats on mobile too */
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .stat-item {
+        margin-bottom: 1.5rem; /* Add default margin for stacked items */
+    }
+    .stat-item:last-child {
+        margin-bottom: 0; /* No margin for the last item */
+    }
 }
 .about-text h3 {
     font-family: var(--font-secondary);
