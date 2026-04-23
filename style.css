@@ -21,6 +21,9 @@
     /* Fonts */
     --font-primary: 'Montserrat', sans-serif;
     --font-secondary: 'Playfair Display', serif;
+
+    /* Navbar Height for positioning */
+    --navbar-height: 70px;
 }
 
 /* Light Mode Overrides */
@@ -35,7 +38,6 @@ body.light-mode {
     --input-border: #ccc;
     --shadow-color: rgba(0, 0, 0, 0.1);
 }
-
 body {
     font-family: var(--font-primary);
     line-height: 1.6;
@@ -50,14 +52,13 @@ body {
     margin: 0 auto;
     padding: 0 1rem;
 }
-
 .section-padding {
     padding: 6rem 0;
 }
 
 .section-title {
     font-family: var(--font-secondary);
-    font-size: 2.8rem;
+    font-size: clamp(2rem, 6vw, 2.8rem); /* Adjust font size for responsiveness */
     text-align: center;
     margin-bottom: 3rem;
     color: var(--text-main);
@@ -66,33 +67,39 @@ body {
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 0.8rem 2rem;
-    border-radius: 5px;
+    padding: 0.8rem 2.5rem; /* Slightly larger padding */
+    border-radius: 8px; /* Slightly rounder corners */
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
+    cursor: pointer;
+    font-size: 1rem; /* Button font size */
 }
 
 .btn-primary {
     background-color: var(--accent-blue);
     color: #fff;
-    border: 1px solid var(--accent-blue);
+    border: 2px solid var(--accent-blue); /* Slightly thicker border */
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.3); /* More prominent shadow */
 }
-
 .btn-primary:hover {
-    background-color: var(--primary-color-hover);
-    border-color: var(--primary-color-hover);
+    background-color: #2980b9; /* Darker hover color */
+    border-color: #2980b9;
+    transform: translateY(-4px); /* Slight lift */
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4); /* Clearer shadow on hover */
 }
 
 .btn-secondary {
     background-color: transparent;
     color: var(--accent-blue);
-    border: 1px solid var(--accent-blue);
+    border: 2px solid var(--accent-blue); /* Slightly thicker border */
 }
 
 .btn-secondary:hover {
     background-color: var(--accent-blue);
     color: #fff;
+    transform: translateY(-4px); /* Slight lift */
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.3); /* Shadow on hover */
 }
 
 /* Navbar */
@@ -106,20 +113,35 @@ body {
     z-index: 1000;
     box-shadow: 0 2px 5px var(--shadow-color);
     transition: background-color 0.3s ease;
+    height: var(--navbar-height); /* Set navbar height */
+    display: flex; /* Use flex for alignment */
+    align-items: center;
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%; /* Ensure container takes full width */
 }
 
-.navbar-brand img {
-    height: 40px;
+/* Logo SVG Styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-svg {
+    height: 50px; /* Adjust logo height as needed */
     width: auto;
-    vertical-align: middle;
+    fill: var(--text-main); /* Use theme variable for logo color */
+    transition: fill 0.3s ease;
 }
 
+.navbar-brand:hover .logo-svg {
+    fill: var(--accent-blue); /* Change logo color on hover */
+}
+/* Navbar Toggler (Mobile Hamburger Icon) */
 .navbar-toggler {
     display: none; /* Hidden on desktop */
     background: none;
@@ -130,8 +152,9 @@ body {
     width: 30px;
     height: 25px;
     padding: 0;
+    margin-right: 1rem; /* Space from theme icon */
+    /* Ensure it's aligned properly centering vertically if needed */
 }
-
 .navbar-toggler span {
     display: block;
     width: 100%;
@@ -153,8 +176,9 @@ body {
     transform: translateY(-11px) rotate(-45deg);
 }
 
+/* Navbar Menu and Links */
 .navbar-menu {
-    display: flex;
+    display: flex; /* Default to flex for desktop */
 }
 
 .navbar-nav {
@@ -168,12 +192,30 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
+    padding: 0.5rem 0; /* Add padding for better hover area */
 }
 
 .nav-item .nav-link:hover {
     color: var(--accent-blue);
 }
+/* Navbar CTA Button */
+.btn-nav-cta {
+    padding: 0.5rem 1.2rem; /* Smaller padding for navbar CTA */
+    font-size: 0.9rem;
+    border-radius: 20px; /* Rounded corners for navbar CTA */
+    box-shadow: none; /* Remove shadow for navbar CTA for subtlety */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease; /* Add transform */
+    border: 1px solid var(--accent-blue); /* Ensure border consistency */
+}
 
+.btn-nav-cta:hover {
+    background-color: #2980b9; /* Hover color for navbar CTA */
+    border-color: #2980b9;
+    transform: translateY(-2px); /* Subtle lift on hover */
+    color: #fff; /* Ensure text remains white */
+}
+
+/* Theme Toggle Button */
 .theme-toggle {
     background: none;
     border: none;
@@ -181,7 +223,7 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
     outline: none;
-    margin-left: 1rem; /* Jarak dari toggler atau nav-links */
+    margin-left: 1rem; /* Space from toggler or nav-links */
     transition: color 0.3s ease;
 }
 
@@ -191,62 +233,74 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/hero-bg.jpg') no-repeat center center/cover;
-    min-height: 100vh;
+    background-color: var(--bg-primary); /* Use background color if no image */
+    min-height: calc(100vh - var(--navbar-height)); /* Adjust height to account for navbar */
     display: flex;
+    justify-content: center; /* Center horizontally */
     align-items: center;
     text-align: center;
     position: relative;
+    padding: 4rem 1rem; /* Add padding for small screens */
 }
-
 .hero-content {
     max-width: 800px;
-    margin: 0 auto;
+    width: 100%; /* Container for responsiveness */
 }
 
 .hero-subtitle {
     font-size: 1.2rem;
     color: var(--accent-blue);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem; /* Adjusted margin */
+    font-weight: 500;
 }
 
 .hero-title {
     font-family: var(--font-secondary);
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(2.8rem, 10vw, 5rem); /* Dynamic font size */
     margin-bottom: 1.5rem;
     line-height: 1.2;
     color: var(--text-main);
+    font-weight: 700;
 }
 
 .hero-description {
-    font-size: 1.1rem;
-    color: var(--text-main);
+    font-size: clamp(1rem, 3vw, 1.2rem); /* Dynamic font size */
+    color: var(--text-muted); /* Using muted color for description */
     margin-bottom: 2.5rem;
+    max-width: 600px; /* Limit description width */
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Allow buttons to wrap on small screens */
 }
 
 /* About Section */
 .about-section {
     background-color: var(--bg-primary);
     transition: background-color 0.3s ease;
+    padding: 6rem 0; /* Ensure padding is applied */
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* Two columns for larger screens */
     gap: 3rem;
     align-items: center;
 }
 
 .about-image img {
     width: 100%;
-    max-width: 400px; /* Batasi ukuran gambar */
+    max-width: 400px; /* Limit image size */
     height: auto;
-    border-radius: 50%; /* Membuat gambar lingkaran */
+    border-radius: 50%; /* Circular image */
     display: block;
-    margin: 0 auto; /* Tengah gambar */
+    margin: 0 auto; /* Center image */
     box-shadow: 0 8px 15px var(--shadow-color);
 }
-
 .about-text h3 {
     font-family: var(--font-secondary);
     font-size: 1.8rem;
@@ -299,6 +353,7 @@ body {
 .contact-section {
     background-color: var(--bg-secondary);
     text-align: center;
+    padding: 6rem 0; /* Ensure padding is applied */
     transition: background-color 0.3s ease;
 }
 
@@ -341,7 +396,7 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #1a242f; /* Ini mungkin perlu disesuaikan dengan variabel tema juga */
+    background-color: #1a242f; /* This might need adjustment with theme variables too */
     padding: 2.5rem 0;
     text-align: center;
     color: var(--text-muted);
@@ -354,12 +409,7 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.social-icons {
-    display: flex;
-    gap: 1rem;
+    gap: 1rem
 }
 
 .social-icons a {
