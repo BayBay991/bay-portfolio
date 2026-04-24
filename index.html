@@ -168,15 +168,36 @@
 html2.518 0 1.485 1.103 2.911 1.263 3.15 1.639 2.039 3.037 2.656 5.37 3.554 1.658.639 2.937.957 3.935.957 1.485 0 2.831-.499 3.934-1.339 1.103-.84 1.956-2.148 2.215-3.553.259-1.404.259-2.613.18-2.832-.08-.199-.279-.279-.56-.419z"/></svg>
     </a>
     <button id="back-to-top" class="back-to-top">↑</button>
-    <script>
+     <script>
+        // Toggle Navbar Menu on Mobile
+        const navbarToggler = document.getElementById('navbar-toggler');
+        const navbarMenu = document.getElementById('navbar-menu');
+
+        if (navbarToggler && navbarMenu) {
+            navbarToggler.addEventListener('click', () => {
+                navbarMenu.classList.toggle('active');
+                navbarToggler.classList.toggle('active'); // Juga toggle kelas pada toggler agar ikon berubah
+            });
+
+            // Opsional: Tutup menu jika mengklik tautan navigasi di dalamnya
+            const navLinks = navbarMenu.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // Cek apakah menu aktif sebelum menutup
+                    if (navbarMenu.classList.contains('active')) {
+                        navbarMenu.classList.remove('active');
+                        navbarToggler.classList.remove('active');
+                    }
+                });
+            });
+        }
+
+        // Theme Toggle Script (sudah ada, pastikan tidak duplikat)
         const themeToggleBtn = document.getElementById('theme-toggle');
         const bodyElement = document.body;
 
-        // Fungsi untuk mengganti tema
         const toggleTheme = () => {
             bodyElement.classList.toggle('light-mode');
-
-            // Simpan preferensi tema di localStorage
             if (bodyElement.classList.contains('light-mode')) {
                 localStorage.setItem('theme', 'light');
             } else {
@@ -184,19 +205,48 @@ html2.518 0 1.485 1.103 2.911 1.263 3.15 1.639 2.039 3.037 2.656 5.37 3.554 1.65
             }
         };
 
-        // Tambahkan event listener ke tombol
         themeToggleBtn.addEventListener('click', toggleTheme);
 
-        // Periksa preferensi tema yang tersimpan saat halaman dimuat
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'light') {
                 bodyElement.classList.add('light-mode');
             } else {
-                // Default ke mode gelap jika tidak ada preferensi atau 'dark' tersimpan
                 bodyElement.classList.remove('light-mode');
             }
         });
+
+        // Smooth Scrolling Script (jika Anda belum menerapkannya di CSS saja)
+        // Jika sudah menerapkan `scroll-behavior: smooth;` di CSS, script ini tidak perlu.
+        // Namun, terkadang menambahkan sedikit JS bisa memberikan kontrol lebih.
+        // Kita akan mengandalkan CSS `scroll-behavior` yang sudah ditambahkan.
+
+        // Back to Top Button Logic
+        const backToTopButton = document.getElementById('back-to-top');
+        if (backToTopButton) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) { // Tampilkan setelah menggulir 300px
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // WhatsApp Button Logic (pastikan ID sesuai)
+        const whatsappButton = document.getElementById('whatsapp-button');
+        // WhatsApp button is often always visible on mobile, or shown based on scroll
+        // Let's ensure it's displayed if it has the 'show' class (which it does by default in HTML)
+        if (whatsappButton && whatsappButton.classList.contains('show')) {
+            // No specific logic needed here unless you want it to appear/disappear
+        }
     </script>
 </body>
 </html>
