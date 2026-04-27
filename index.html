@@ -1,367 +1,408 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAY | Creative Portfolio</title>
+    <title>Portofolio Clawy</title> 
+    <!-- Google Fonts: Playfair Display for headings, Open Sans for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for elegant typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-</head>
-<body>
+    <style>
+        /* --- Global Styles --- */
+        body {
+            font-family: 'Open Sans', sans-serif; 
+            background-color: #efece3; 
+            color: #2b59a2; 
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden; /* Mencegah scroll horizontal */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif; 
+            color: #2b59a2; 
+        }
 
-    <!-- Custom Cursor (Optional Noir Vibe) -->
-    <div class="cursor"></div>
+        a {
+            color: #e3ad48; 
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo"><img src="assets/logo/logo.png" alt="BAY Logo" style="height: 40px; vertical-align: middle;"></div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button id="theme-toggle" class="theme-toggle">☀️</button>
-    </nav>
+        a:hover {
+            color: #f0c471; 
+        }
+        /* --- Navbar Styles --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: rgba(43, 89, 162, 0.8); /* Biru tua semi-transparan */
+            color: #efece3;
+            position: sticky; /* Agar navbar tetap di atas */
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease; /* Transisi halus saat scroll */
+        }
+        .navbar.scrolled {
+            background-color: rgba(43, 89, 162, 0.95); /* Latar lebih solid saat di-scroll */
+        }
+        .navbar .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #e3ad48; /* Aksen warna pada logo */
+        }
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar .nav-links li {
+            margin-left: 30px;
+        }
+        .navbar .nav-links a {
+            color: #efece3; /* Warna link navigasi */
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 5px 0;
+            position: relative;
+        }
+        .navbar .nav-links a::after { /* Underline effect */
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #e3ad48;
+            transition: width 0.3s ease;
+        }
+        .navbar .nav-links a:hover::after {
+            width: 100%;
+        }
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="reveal-text">Creative<br>Developer.</h1>
-            <p class="fade-in">Crafting dark, elegant, and minimal digital experiences.</p>
-            <a href="#work" class="btn fade-in">Explore My Work</a>
-        </div>
-    </section>
+        /* --- Mobile Menu --- */
+        .menu-toggle {
+            display: none; /* Sembunyikan di desktop */
+            background: none;
+            border: none;
+            color: #efece3;
+            font-size: 2em;
+            cursor: pointer;
+        }
+        .mobile-nav {
+            display: none; /* Sembunyikan secara default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(43, 89, 162, 0.95); /* Background semi-transparan */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            transform: translateX(-100%); /* Mulai dari luar layar */
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-nav.active {
+            transform: translateX(0); /* Tampilkan saat aktif */
+        }
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        .mobile-nav li {
+            margin-bottom: 30px;
+        }
+        .mobile-nav a {
+            color: #efece3;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        .mobile-nav .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #efece3;
+            font-size: 2.5em;
+            cursor: pointer;
+        }
+        /* --- Hero Section --- */
+        .hero-section {
+            background-color: #2b59a2; /* Default background */
+            color: #efece3; 
+            padding: 120px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+            position: relative; 
+            overflow: hidden; 
+            opacity: 0; /* Mulai tersembunyi untuk animasi */
+            transform: translateY(50px); /* Mulai dari bawah */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .hero-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-section h1 {
+            font-size: 4em; 
+            margin-bottom: 15px;
+            color: #e3ad48; 
+            letter-spacing: 1px;
+        }
+        .hero-section p {
+            font-size: 1.6em; 
+            margin-bottom: 40px;
+            font-style: italic; 
+        }
+        .hero-section .cta-button {
+            background-color: #e3ad48; 
+            color: #2b59a2; 
+            padding: 15px 35px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 8px; 
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .hero-section .cta-button:hover {
+            background-color: #f0c471; 
+            transform: translateY(-3px);
+        }
 
-    <!-- About & Recent Work Section -->
-    <section id="about" class="about">
-        <div class="about-container">
-            <div class="about-text">
-                <h2 class="section-title">About Me</h2>
-                <p>
-                  Halo! Saya <strong>Bay</strong> — seorang <strong>Graphic Designer</strong>, 
-                  <strong>Video Editor</strong>, dan <strong>Content Creator</strong> yang 
-                  berfokus pada karya visual yang kuat dan bercerita.
-                </p>
-                <p>
-                  Saya membantu brand dan individu tampil percaya diri melalui desain yang 
-                  estetis, konten video yang engaging, dan identitas visual yang konsisten.
-                </p>
+        /* --- About Section --- */
+        .about-section {
+            padding: 100px 20px;
+            text-align: center;
+            background-color: #fff; /* Latar belakang putih untuk kontras */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .about-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .about-section h2 {
+            font-size: 3em;
+            margin-bottom: 40px;
+            color: #e3ad48; /* Aksen warna oranye */
+        }
 
-                <h3 style="margin-top: 2rem; font-family: var(--font-heading); font-size: 1rem; text-transform: uppercase; color: var(--text-muted);">Tools & Software</h3>
-                <li>Adobe Photoshop — Editing & Manipulasi Foto</li>
-                <li>Adobe Illustrator — Desain Vektor & Branding</li>
-                <li>CorelDraw — Layout & Desain Grafis</li>
-                <li>Adobe Premiere Pro — Video Editing Profesional</li>
-                <li>CapCut Pro — Short-form & Social Media Video</li>
-                </ul>
-                <div class="software-icons" style="display: flex; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <div class="icon-item" style="text-align: center; width: 60px;">
-                        <img src="https://cdn.worldvectorlogo.com/logos/adobe-photoshop-2.svg" alt="PS" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
-                        <p style="font-size: 0.7rem; color: var(--text-muted);">PS</p>
-                    </div>
-                    <div class="icon-item" style="text-align: center; width: 60px;">
-                        <img src="assets/logo/1x/Artboard 1.png" alt="AI" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
-                        <p style="font-size: 0.7rem; color: var(--text-muted);">AI</p>
-                    </div>
-                    <div class="icon-item" style="text-align: center; width: 60px;">
-                        <img src="assets/logo/1x/coreldraw-x7.png" alt="Corel" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
-                        <p style="font-size: 0.7rem; color: var(--text-muted);">CDR</p>
-                    </div>
-                    <div class="icon-item" style="text-align: center; width: 60px;">
-                        <img src="assets/logo/1x/artboard 2.png" alt="PR" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
-                        <p style="font-size: 0.7rem; color: var(--text-muted);">PR</p>
-                    </div>
-                    <div class="icon-item" style="text-align: center; width: 60px;">
-                        <img src="assets/logo/1x/capcut.png" alt="CapCut" style="width: 40px; height: 40px; border-radius: 8px; margin-bottom: 0.5rem;">
-                        <p style="font-size: 0.7rem; color: var(--text-muted);">CapCut</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="recent-work-table">
-                <h3 class="table-title">Recent Work</h3>
-                <div class="work-row">
-                    <span class="work-year">2024</span>
-                    <span class="work-name">Project Alpha</span>
-                    <span class="work-type">Web Development</span>
-                </div>
-                <div class="work-row">
-                    <span class="work-year">2023</span>
-                    <span class="work-name">Project Beta</span>
-                    <span class="work-type">UI/UX Design</span>
-                </div>
-                <div class="work-row">
-                    <span class="work-year">2023</span>
-                    <span class="work-name">Project Gamma</span>
-                    <span class="work-type">Branding</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px; /* Jarak antara gambar dan teks */
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: left; /* Teks rata kiri agar lebih rapi */
+        }
 
-    <!-- Work Section -->
-    <section id="work" class="work">
-        <h2 class="section-title">Selected Projects</h2>
-        <div class="portfolio-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-image" style="background-color: #222;"></div>
-                <div class="project-info">
-                    <h3>Project Alpha</h3>
-                    <p>Web Development / Design</p>
-                </div>
-            </div>
-            <!-- Project 2 -->
-            <div class="project-card">
-                <div class="project-image" style="background-color: #2a2a2a;"></div>
-                <div class="project-info">
-                    <h3>Project Beta</h3>
-                    <p>Branding / UI</p>
-                </div>
-            </div>
-            <!-- Project 3 -->
-            <div class="project-card">
-                <div class="project-image" style="background-color: #1a1a1a;"></div>
-                <div class="project-info">
-                    <h3>Project Gamma</h3>
-                    <p>Interactive Experience</p>
-                </div>
-            </div>
-            <!-- Project 4 -->
-            <div class="project-card">
-                <div class="project-image" style="background-color: #333;"></div>
-                <div class="project-info">
-                    <h3>Project Delta</h3>
-                    <p>Photography / Direction</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        .about-image {
+            flex-basis: 40%; /* Lebar foto profil */
+            max-width: 400px; /* Ukuran maksimum foto */
+            border-radius: 15px; /* Sudut sedikit melengkung */
+            overflow: hidden; /* Agar gambar sesuai dengan border radius */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
-            <h2>Let's talk about your next project.</h2>
-            <a href="mailto:hello@bay.com" class="email-link">hello@bay.com</a>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 BAY. All rights reserved.</p>
-            <div class="socials">
-                <a href="https://www.instagram.com/bayu.prstyo_/" aria-label="Instagram" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                </a>
-                <a href="#" aria-label="Twitter">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-                </a>
-                <a href="#" aria-label="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                </a>
-            </div>
-        </div>
-    </footer>
+        .about-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 15px; /* Pastikan gambar juga melengkung */
+        }
 
-    <script src="script.js"></script>
-</body>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAY | Creative Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for elegant typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-</head>
-<body>
+        .about-text {
+            flex-basis: 60%; /* Lebar area teks */
+        }
 
-    <!-- Custom Cursor (Optional Noir Vibe) -->
-    <div class="cursor"></div>
+        .about-text p {
+            font-size: 1.2em; 
+            line-height: 1.8; 
+            color: #555; 
+        }
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo"><img src="logo.png" alt="BAY Logo" style="height: 40px; vertical-align: middle;"></div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button id="theme-toggle" class="theme-toggle">☀️</button>
-    </nav>
+        /* --- Skills Section --- */
+        .skills-section {
+            padding: 100px 20px;
+            background-color: #fff; 
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .skills-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .skills-section h2 {
+            font-size: 3em;
+            margin-bottom: 60px;
+            color: #e3ad48; 
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px; 
+            max-width: 1000px;
+            margin: 0 auto;
+        }
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="reveal-text">Creative<br>Developer.</h1>
-            <p class="fade-in">Crafting dark, elegant, and minimal digital experiences.</p>
-            <a href="#work" class="btn fade-in">Explore My Work</a>
-        </div>
-    </section>
+        .skill-category {
+            background-color: #f8f8f8; 
+            border-radius: 10px;
+            padding: 30px;
+            flex: 1; 
+            min-width: 280px; 
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    <!-- About & Recent Work Section -->
-    <section id="about" class="about">
-        <div class="about-container">
-            <div class="about-text">
-                <h2 class="section-title">About Me</h2>
-                <p>
-                  Halo! Saya <strong>Bay</strong> — seorang <strong>Graphic Designer</strong>, 
-                  <strong>Video Editor</strong>, dan <strong>Content Creator</strong> yang 
-                  berfokus pada karya visual yang kuat dan bercerita.
-                </p>
-                <p>
-                  Saya membantu brand dan individu tampil percaya diri melalui desain yang 
-                  estetis, konten video yang engaging, dan identitas visual yang konsisten.
-                </p>
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
 
-                <h3 style="margin-top: 2rem; font-family: var(--font-heading); font-size: 1rem; text-transform: uppercase; color: var(--text-muted);">Tools & Software</h3>
-                <li>Adobe Photoshop — Editing & Manipulasi Foto</li>
-                <li>Adobe Illustrator — Desain Vektor & Branding</li>
-                <li>CorelDraw — Layout & Desain Grafis</li>
-                <li>Adobe Premiere Pro — Video Editing Profesional</li>
-                <li>CapCut Pro — Short-form & Social Media Video</li>
-                </ul>
-                <div class="software-icons" style="display: flex; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <div class="icon-item" style="text-align: center; width: 60px;">
-                        <img src="https://cdn.worldvectorlogo.com/logos/adobe-photoshop-2.svg" alt="PS" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
-                        <p style="font-size: 0.7rem; color: var(--text-muted);">PS</p>
-                    </div>
-                    <div class="icon-item" style="text-align: center; width: 60px;">
-                        <img src="https://github.com/BayBay991/bay-portfolio/blob/745b2df7b2b208e2f1261c12d658e975309114ed/assets/logo/1x/Artboard 1.png" alt="AI" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
-                        <p style="font-size: 0.7rem; color: var(--text-muted);">AI</p>
-                    </div>
-                    <div class="icon-item" style="text-align: center; width: 60px;">
-                        <img src="C:\Users\AKBAR\.openclaw\workspace\assets\logo\1x\coreldraw-x7.png" alt="Corel" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
-                        <p style="font-size: 0.7rem; color: var(--text-muted);">CDR</p>
-                    </div>
-                    <div class="icon-item" style="text-align: center; width: 60px;">
-                        <img src="C:\Users\AKBAR\.openclaw\workspace\assets\logo\1x\artboard 2.png" alt="PR" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
-                        <p style="font-size: 0.7rem; color: var(--text-muted);">PR</p>
-                    </div>
-                    <div class="icon-item" style="text-align: center; width: 60px;">
-                        <img src="C:\Users\AKBAR\.openclaw\workspace\assets\logo\1x\capcut.png" alt="CapCut" style="width: 40px; height: 40px; border-radius: 8px; margin-bottom: 0.5rem;">
-                        <p style="font-size: 0.7rem; color: var(--text-muted);">CapCut</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="recent-work-table">
-                <h3 class="table-title">Recent Work</h3>
-                <div class="work-row">
-                    <span class="work-year">2024</span>
-                    <span class="work-name">Project Alpha</span>
-                    <span class="work-type">Web Development</span>
-                </div>
-                <div class="work-row">
-                    <span class="work-year">2023</span>
-                    <span class="work-name">Project Beta</span>
-                    <span class="work-type">UI/UX Design</span>
-                </div>
-                <div class="work-row">
-                    <span class="work-year">2023</span>
-                    <span class="work-name">Project Gamma</span>
-                    <span class="work-type">Branding</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        .skill-category h3 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            color: #2b59a2; 
+        }
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+            text-align: left; 
+        }
 
-    <!-- Work Section -->
-    <section id="work" class="work">
-        <h2 class="section-title">Selected Projects</h2>
-        <div class="portfolio-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-image" style="background-color: #222;"></div>
-                <div class="project-info">
-                    <h3>Project Alpha</h3>
-                    <p>Web Development / Design</p>
-                </div>
-            </div>
-            <!-- Project 2 -->
-            <div class="project-card">
-                <div class="project-image" style="background-color: #2a2a2a;"></div>
-                <div class="project-info">
-                    <h3>Project Beta</h3>
-                    <p>Branding / UI</p>
-                </div>
-            </div>
-            <!-- Project 3 -->
-            <div class="project-card">
-                <div class="project-image" style="background-color: #1a1a1a;"></div>
-                <div class="project-info">
-                    <h3>Project Gamma</h3>
-                    <p>Interactive Experience</p>
-                </div>
-            </div>
-            <!-- Project 4 -->
-            <div class="project-card">
-                <div class="project-image" style="background-color: #333;"></div>
-                <div class="project-info">
-                    <h3>Project Delta</h3>
-                    <p>Photography / Direction</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        .skill-category li {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: #555; 
+            display: flex;
+            align-items: center; 
+        }
+        .skill-icon {
+            margin-right: 15px;
+            font-size: 1.4em; 
+            color: #e3ad48; 
+        }
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
-            <h2>Let's talk about your next project.</h2>
-            <a href="mailto:hello@bay.com" class="email-link">hello@bay.com</a>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 BAY. All rights reserved.</p>
-            <div class="socials">
-                <a href="https://www.instagram.com/bayu.prstyo_/" aria-label="Instagram" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                </a>
-                <a href="#" aria-label="Twitter">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-                </a>
-                <a href="#" aria-label="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                </a>
-            </div>
-        </div>
-    </footer>
+        /* --- Portfolio Section (Masonry Layout) --- */
+        .portfolio-section {
+            padding: 100px 20px;
+            background-color: #efece3; 
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .portfolio-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .portfolio-section h2 {
+            font-size: 3em;
+            margin-bottom: 60px;
+            color: #2b59a2; 
+        }
 
-    <script src="script.js"></script>
-</body>
-<!-- Profile Picture -->
-            <div class="profile-pic">
-                <img src="assets/logo/WhatsApp Image 2026-04-15 at 09.10.png" alt="Bay~ Profile" style="width: 100%; border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.3);">
-            </div>
+        .portfolio-grid {
+            column-count: 3; /* Memulai masonry layout */
+            column-gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-            <div class="about-text">
-                <h2 class="section-title">Halo! Saya Bay</h2>
-                <p>
-                  Creative Developer & Visual Storyteller dengan fokus pada desain minimal,
-                  antarmuka elegan, dan konten video yang memikat.
-                </p>
-        <h3 style="margin-top: 2rem; font-family: var(--font-heading); font-size: 1rem; text-transform: uppercase; color: var(--text-muted);">Tools & Software</h3>
-                <div class="software-icons" style="display: flex; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <div class="icon-item" style="text-align: center; width: 60px;">
-                        <img src="assets/logo/1x/Artboard 1.png" alt="AI" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
-                        <p style="font-size: 0.7rem; color: var(--text-muted);">Adobe Illustrator</p>
-                    </div>
-                    <div class="icon-item" style="text-align: center; width: 60px;">
-                        <img src="assets/logo/1x/coreldraw-x7.png" alt="Corel" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
-                        <p style="font-size: 0.7rem; color: var(--text-muted);">CorelDraw</p>
-                    </div>
-                    <div class="icon-item" style="text-align: center; width: 60px;">
-                        <img src="assets/logo/1x/artboard 2.png" alt="PR" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
-                        <p style="font-size: 0.7rem; color: var(--text-muted);">After Effects</p>
-                    </div>
-                    <div class="icon-item" style="text-align: center; width: 60px;">
-                        <img src="assets/logo/1x/capcut.png" alt="CapCut" style="width: 40px; height: 40px; border-radius: 8px; margin-bottom: 0.5rem;">
-                        <p style="font-size: 0.7rem; color: var(--text-muted);">CapCut</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</html>
+        .portfolio-item {
+            background-color: #fff; 
+            border-radius: 10px;
+            overflow: hidden; 
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px; /* Jarak antar item dalam kolom */
+            display: inline-block; /* Penting untuk masonry */
+            width: 100%; /* Agar item mengisi lebar kolom */
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: auto; /* Tinggi menyesuaikan proporsi gambar */
+            display: block; 
+        }
+
+        .portfolio-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+            min-height: 150px; /* Tinggi minimum untuk info */
+        }
+
+        .portfolio-info h3 {
+            font-size: 1.6em;
+            margin-bottom: 8px;
+            color: #2b59a2; 
+        }
+
+        .portfolio-info p {
+            font-size: 0.95em;
+            color: #777; 
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .details-button {
+            background-color: #e3ad48; 
+            color: #2b59a2; 
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            align-self: center; 
+            margin-top: auto; 
+        }
+
+        .details-button:hover {
+            background-color: #f0c471; 
+        }
+        /* --- Social Media Links --- */
+        .social-media-links {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #2b59a2; 
+            color: #efece3; 
+            text-align: center;
+        }
+        .social-media-links h3 {
+            margin-bottom: 20px;
+            color: #e3ad48; 
+            font-size: 1.8em;
+        }
+        .social-media-links ul {
+            list-
