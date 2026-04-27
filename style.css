@@ -311,61 +311,54 @@ body.light-mode .navbar {
 
 /* --- Hero Section Styling --- */
 .hero-section {
-    background-color: var(--bg-primary); /* Default background dark */
-    min-height: 100vh; /* Tinggi penuh layar */
+    background-color: var(--bg-primary); /* Gelap, sesuai referensi */
+    min-height: 100vh;
     display: flex;
-    align-items: center; /* Pusatkan vertikal konten wrapper */
-    padding: 6rem 0; /* Padding atas bawah */
-    overflow: hidden; /* Hindari overflow */
-    position: relative; /* Untuk posisi absolut elemen di dalamnya jika ada */
+    align-items: center;
+    padding: 6rem 0;
+    overflow: hidden;
+    position: relative;
 }
-.hero-content-wrapper {
+
+.hero-wrapper {
     display: flex;
-    align-items: center; /* Pusatkan item flex secara vertikal */
-    justify-content: space-between; /* Jarak antara kolom teks dan gambar */
-    gap: 3rem; /* Jarak antar kolom */
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem; /* Jarak antara kolom */
     width: 100%;
-    max-width: 1200px; /* Lebar maksimum kontainer */
+    max-width: 1200px; /* Lebar maksimum */
     margin: 0 auto;
-    padding: 0 1.5rem; /* Padding samping */
+    padding: 0 2rem; /* Padding samping */
 }
 
-.hero-text-column {
-    flex: 1; /* Mengambil ruang yang tersedia */
-    max-width: 550px; /* Batas lebar maksimum untuk kolom teks */
-    text-align: left; /* Teks rata kiri */
-    order: 1; /* Default: Teks di kiri, gambar di kanan */
-}
-
-.hero-image-column {
-    flex: 1; /* Mengambil ruang yang tersedia */
+.hero-content {
+    flex: 1;
+    max-width: 550px; /* Batas lebar kolom teks */
+    text-align: left;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Pusatkan elemen di dalam kolom gambar */
-    justify-content: center;
-    order: 2; /* Default: Gambar di kanan */
+    gap: 1rem; /* Jarak antar elemen teks */
 }
 
-.hero-prefix-title {
+.hero-subtitle {
     font-size: 1.3rem;
-    color: var(--accent-blue);
-    margin-bottom: 0.5rem;
+    color: var(--accent-blue); /* Menggunakan warna aksen biru */
     font-weight: 500;
+    margin-bottom: 0.5rem;
 }
 
-.hero-main-title {
-    font-family: var(--font-secondary);
-    font-size: clamp(3rem, 8vw, 5.5rem); /* Ukuran font dinamis besar */
-    margin-bottom: 1rem;
+.hero-title {
+    font-family: var(--font-secondary); /* Playfair Display */
+    font-size: clamp(3.5rem, 8vw, 6rem); /* Ukuran font yang sangat besar dan dinamis */
     line-height: 1.1;
+    margin-bottom: 0.5rem;
     color: var(--text-main);
     font-weight: 700;
 }
-
-.hero-subheading {
-    font-family: var(--font-secondary);
-    font-size: clamp(2.5rem, 6vw, 4rem); /* Ukuran font dinamis */
-    color: var(--text-main);
+.hero-tagline {
+    font-family: var(--font-secondary); /* Playfair Display */
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--text-muted); /* Warna abu-abu agak terang */
     margin-bottom: 1.5rem;
     line-height: 1.2;
 }
@@ -373,16 +366,107 @@ body.light-mode .navbar {
 .hero-description {
     font-size: 1.15rem;
     color: var(--text-muted);
+    line-height: 1.8;
     margin-bottom: 3rem;
-    line-height: 1.7;
-    max-width: 500px; /* Batasi lebar deskripsi agar rapi */
 }
-
 .hero-cta-buttons {
     display: flex;
     gap: 1.5rem;
 }
 
+/* Ghost/Outline Button Style */
+.btn-ghost {
+    background-color: transparent;
+    color: var(--accent-blue); /* Warna teks sesuai aksen */
+    border: 2px solid var(--accent-blue); /* Border tebal sesuai aksen */
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px; /* Tombol sangat membulat */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-ghost:hover {
+    background-color: var(--accent-blue); /* Background berubah saat hover */
+    color: #fff; /* Teks jadi putih */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4); /* Shadow seperti tombol primary */
+}
+
+
+/* --- Hero Image Styling --- */
+.hero-image-container {
+    flex-shrink: 0; /* Agar gambar tidak menyusut */
+    width: 45%; /* Sesuaikan lebar kolom gambar */
+    display: flex;
+    justify-content: flex-end; /* Dorong gambar ke kanan dalam kolomnya */
+    align-items: center;
+}
+
+.hero-profile-pic {
+    width: 100%;
+    max-width: 450px; /* Ukuran maksimal gambar */
+    height: auto;
+    border-radius: 15px; /* Sedikit sudut membulat */
+    display: block;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); /* Bayangan */
+}
+
+/* Responsive Adjustments for Hero Section */
+@media (max-width: 992px) {
+    .hero-wrapper {
+        flex-direction: column; /* Stack columns */
+        text-align: center; /* Center align text */
+        gap: 4rem;
+    }
+
+    .hero-content {
+        order: 2; /* Text below image */
+        max-width: 100%;
+    }
+
+    .hero-image-container {
+        order: 1; /* Image on top */
+        width: 100%; /* Take full width */
+        justify-content: center; /* Center image */
+        margin-bottom: 3rem;
+    }
+    
+    .hero-profile-pic {
+        max-width: 300px; /* Smaller image on mobile */
+        margin: 0 auto; /* Center image */
+    }
+    
+    .hero-subtitle, .hero-main-title, .hero-tagline, .hero-description {
+        text-align: center; /* Center all text */
+    }
+
+    .hero-cta-buttons {
+        justify-content: center; /* Center buttons */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-wrapper {
+        gap: 3rem;
+    }
+    .hero-main-title {
+        font-size: clamp(2.8rem, 8vw, 5rem);
+    }
+    .hero-tagline {
+        font-size: clamp(2.2rem, 6vw, 3.5rem);
+    }
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    .btn-ghost, .btn-primary {
+         padding: 0.9rem 2.5rem;
+         font-size: 1rem;
+    }
+}
+
+/* Assuming you use Boxicons for navigation, and want them styled if present. */
+/* If not using Boxicons, this part might not be needed specific to the Hero Section unless they appear there. */
 /* Custom button style for the green CTA */
 .btn-primary-green {
     background-color: #4CAF50; /* Green color */
