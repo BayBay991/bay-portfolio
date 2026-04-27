@@ -14,14 +14,9 @@
     <nav class="navbar">
         <div class="container">
             <!-- Logo -->
+            <!-- Logo -->
             <a href="#hero" class="navbar-brand">
-                <div class="logo-container">
-                    <svg viewBox="0 0 100 100" class="logo-svg">
-                        <text x="25" y="75" font-family="Montserrat, sans-serif" font-weight="700" font-size="50" fill="currentColor">JR</text>
-                        <text x="65" y="50" font-family="Montserrat, sans-serif" font-weight="400" font-size="25" fill="currentColor" dy="0.3em">JERRY</text>
-                        <text x="60" y="75" font-family="Montserrat, sans-serif" font-weight="400" font-size="25" fill="currentColor" dy="0.3em">RODRIGUEZ</text>
-                    </svg>
-                </div>
+                <img src="assets/new-logo.png" alt="Jerry Rodriguez Logo" class="navbar-logo-img">
             </a>
 
             <!-- Navbar Toggler (untuk mobile) -->
@@ -41,7 +36,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="#my-work" class="nav-link">My Work</a></li>
+                    <li class="nav-item"><a href="#my-work-in-action" class="nav-link">My Work</a></li>
                     <li class="nav-item"><a href="#about" class="nav-link">About Me</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link"><button class="btn btn-nav-cta">Start Your Project</button></a></li>
                 </ul>
@@ -49,22 +44,33 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+     <!-- Hero Section -->
     <header id="hero" class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <p class="hero-subtitle">Brand & Web Design for Service Businesses</p>
-                <h1 class="hero-title">Ready to Scale.</h1>
+        <div class="hero-content-wrapper">
+            <div class="hero-text-column">
+                <p class="hero-prefix-title">Brand & Web Design for</p>
+                <h1 class="hero-main-title">Service Businesses</h1>
+                <h2 class="hero-subheading">Ready to Scale.</h2>
                 <p class="hero-description">Creating modern, scalable brands and websites that drive business growth.</p>
                 <div class="hero-cta-buttons">
-                    <a href="#portfolio" class="btn btn-primary">View My Portfolio</a>
-                    <a href="#contact" class="btn btn-secondary">Schedule a Consultation</a>
+                    <a href="#portfolio" class="btn btn-primary-green">View My Portfolio</a>
                 </div>
             </div>
-            <!-- Opsional: Tambahkan elemen visual di sini jika ada -->
+            <div class="hero-image-column">
+                <div class="profile-image-container">
+                    <img src="assets/profile_picture.jpeg" alt="Jerry Rodriguez Profile Picture" class="profile-picture-hero">
+                </div>
+                <div class="circular-text-graphic">
+                    <span>BRAND DESIGNER</span> - SEPTIAWAN BAYU PRASETYO
+                </div>
+            </div>
+        </div>        
+                 </div>
+                </div>
+            </div>
         </div>
+    </section>
     </header>
-
     <!-- About Section -->
     <section id="about" class="about-section section-padding">
         <div class="container">
@@ -74,7 +80,7 @@
                     <img src="assets/profile_picture.jpeg" alt="Profile Picture" class="profile-picture">
                 </div>
                 <div class="about-text">
-                    <h3>Hi, I’m Jerry Rodriguez, a dedicated Brand and Web Designer with a passion for transforming businesses through powerful design.</h3>
+                    <h3>Hi, I’m Bayu Prasetyo, a dedicated Brand and Web Designer with a passion for transforming businesses through powerful design.</h3>
                     <p>With over 8 years of experience across 10+ industries and 100+ successful projects, I specialize in creating modern, scalable brands and websites that drive business growth.</p>
                     <div class="stats-container">
                         <div class="stat-item">
@@ -131,6 +137,128 @@
             </div>
         </div>
     </section>
+ <!-- Services Section -->
+    <section id="services" class="services-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Services</h2>
+            <p class="section-description">Here's how I've transformed brands and web experiences for clients across industries. Each project is a collaboration designed to exceed expectations and drive measurable results.</p>
+            
+            <div class="services-grid">
+                <!-- Service Card 1: Brand Identity Design -->
+                <div class="service-item">
+                    <div class="service-visual">
+                        <img src="assets/service-brand-identity.jpg" alt="Brand Identity Design Visual">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Brand Identity Design</h3>
+                        <p class="service-description">Creating compelling brand identities that attract your ideal customers and differentiate you from competitors.</p>
+                        <div class="service-tags">
+                            <span>Logos</span>
+                            <span>Brand Identity</span>
+                            <span>Mockups</span>
+                            <span>Strategy</span>
+                            <span>Brand Guides</span>
+                            <span>Social Media</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 2: Web Design & Development -->
+                <div class="service-item">
+                    <div class="service-visual">
+                        <img src="assets/service-web-design.jpg" alt="Web Design & Development Visual">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Web Design & Development</h3>
+                        <p class="service-description">Crafting sleek, intuitive websites with Webflow. Tailored to engage, impress, and convert your audience.</p>
+                        <div class="service-tags">
+                            <span>Website Design</span>
+                            <span>Wireframing</span>
+                            <span>Sitemap</span>
+                            <span>Webflow Development</span>
+                            <span>SEO Optimization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 3: Brand & Web Optimization -->
+                <div class="service-item">
+                    <div class="service-visual">
+                        <img src="assets/service-optimization.jpg" alt="Brand & Web Optimization Visual">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Brand & Web Optimization</h3>
+                        <p class="service-description">Ensuring your site stays up-to-date, secure, and fast. From technical tweaks to content updates on a monthly basis.</p>
+                        <div class="service-tags">
+                            <span>Monthly Maintenance</span>
+                            <span>Blog Design</span>
+                            <span>SEO Optimization</span>
+                            <span>Hosting</span>
+                            <span>Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- My Work in Action Section --> 
+    <section id="my-work-in-action" class="work-in-action-section">
+        <div class="work-in-action-header">
+            <div class="container">
+                <h2 class="section-title">My Work in Action</h2>
+                <p class="work-in-action-description">Here's how I've transformed brands and web experiences for clients across industries. Each project is a collaboration designed to exceed expectations and drive measurable results.</p>
+            </div>
+        </div>
+        
+        <div class="work-in-action-project">
+            <div class="container">
+                <div class="project-showcase">
+                    <div class="project-details-column">
+                        <h3 class="project-title">Executive Parking Service</h3>
+                        <span class="project-tag">Brand + Web Redesign</span>
+                        <p class="project-description">Struggling with finding dependable parking solutions for your special events? With EXP, enjoy effortless valet and self-parking services tailored to your needs.</p>
+                        <a href="#" class="btn btn-primary-accent">Schedule Vault Now</a>
+                    </div>
+                    <div class="project-mockup-column">
+                        <div class="mockup-container">
+                            <img src="assets/mockup-desktop-exp.png" alt="Executive Parking Service Desktop Mockup" class="mockup-desktop">
+                            <img src="assets/mockup-mobile-exp.png" alt="Executive Parking Service Mobile Mockup" class="mockup-mobile">
+                        </div>
+                        <img src="assets/logo/exp_logo_green.png" alt="EXP Logo" class="project-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- My Work in Action Section -->
+    <section id="my-work-in-action" class="work-in-action-section">
+        <div class="work-in-action-header">
+            <div class="container">
+                <h2 class="section-title">My Work in Action</h2>
+                <p class="work-in-action-description">Here's how I've transformed brands and web experiences for clients across industries. Each project is a collaboration designed to exceed expectations and drive measurable results.</p>
+            </div>
+        </div>
+        
+        <div class="work-in-action-project">
+            <div class="container">
+                <div class="project-showcase">
+                    <div class="project-details-column">
+                        <h3 class="project-title">Executive Parking Service</h3>
+                        <span class="project-tag">Brand + Web Redesign</span>
+                        <p class="project-description">Struggling with finding dependable parking solutions for your special events? With EXP, enjoy effortless valet and self-parking services tailored to your needs.</p>
+                        <a href="#" class="btn btn-primary-accent">Schedule Vault Now</a>
+                    </div>
+                    <div class="project-mockup-column">
+                        <div class="mockup-container">
+                            <img src="assets/mockup-desktop-exp.png" alt="Executive Parking Service Desktop Mockup" class="mockup-desktop">
+                            <img src="assets/mockup-mobile-exp.png" alt="Executive Parking Service Mobile Mockup" class="mockup-mobile">
+                        </div>
+                        <img src="assets/logo/exp_logo_green.png" alt="EXP Logo" class="project-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section section-padding">
@@ -169,6 +297,34 @@ html2.518 0 1.485 1.103 2.911 1.263 3.15 1.639 2.039 3.037 2.656 5.37 3.554 1.65
     </a>
     <button id="back-to-top" class="back-to-top">↑</button>
      <script>
+         <!-- Scroll Animations Script -->
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section-padding, .portfolio-section, .contact-section, .about-section'); // Target elemen yang ingin dianimasikan
+            const observerOptions = {
+                root: null, // viewport sebagai root
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger animasi ketika 10% elemen terlihat
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Hentikan observer untuk elemen ini setelah sekali animasi
+                        // Jika ingin animasi berulang, hapus baris ini
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                // Tambahkan kelas dasar ke setiap bagian yang akan dianimasikan
+                section.classList.add('scroll-animate', 'slide-up'); 
+                observer.observe(section);
+            });
+
+            // ... (Skrip lain seperti navbar, theme toggle, dll. tetap di sini) ...
+        });
         // Toggle Navbar Menu on Mobile
         const navbarToggler = document.getElementById('navbar-toggler');
         const navbarMenu = document.getElementById('navbar-menu');
@@ -247,6 +403,7 @@ html2.518 0 1.485 1.103 2.911 1.263 3.15 1.639 2.039 3.037 2.656 5.37 3.554 1.65
         if (whatsappButton && whatsappButton.classList.contains('show')) {
             // No specific logic needed here unless you want it to appear/disappear
         }
+        
     </script>
 </body>
 </html>
