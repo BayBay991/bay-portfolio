@@ -524,37 +524,36 @@ body.light-mode .navbar {
 .about-section {
     background-color: var(--bg-primary); /* Latar belakang gelap untuk bagian About */
     transition: background-color 0.3s ease;
-    padding: 6rem 0; /* Pastikan padding diaplikasikan */
+    padding: 6rem 0; /* Ensure padding is applied */
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Dua kolom untuk teks dan gambar */
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
-    text-align: left; /* Teks rata kiri */
+    text-align: left; /* Text alignment to the left */
 }
-
 .about-image {
-    text-align: center; /* Pusatkan gambar dalam kolomnya */
+    text-align: center; /* Center the image within its column */
 }
 
-.about-image img.profile-picture { /* Menggunakan kelas yang sudah ada */
+/* Specific styling for the profile picture in the About section */
+.about-image .profile-picture { /* Made selector more specific */
     width: 100%;
-    max-width: 300px; /* Sesuaikan ukuran gambar profil agar pas dan terlihat bagus */
-    height: auto;
-    border-radius: 50%; /* Membuat gambar lingkaran */
-    display: block;
-    margin: 0 auto; /* Pusatkan gambar dalam elemen `.about-image` */
-    box-shadow: 0 15px 30px var(--shadow-color); /* Bayangan lebih menonjol */
-    border: 6px solid var(--accent-blue); /* Border untuk memisahkan dari latar */
+    max-width: 300px; /* Limit image size */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make image circular */
+    display: block; /* Ensure it behaves as a block element */
+    margin: 0 auto; /* Center image within the about-image container */
+    box-shadow: 0 15px 30px var(--shadow-color); /* More prominent shadow */
+    border: 6px solid var(--accent-blue); /* Border to make it pop */
 }
-
 .about-text h3 {
     font-family: var(--font-secondary);
-    font-size: 2rem; /* Ukuran font yang lebih besar untuk judul */
+    font-size: 2rem; /* Larger font size for heading */
     margin-bottom: 1.5rem;
-    color: var(--text-main); /* Gunakan warna teks utama */
+    color: var(--text-main);
 }
 
 .about-text p {
