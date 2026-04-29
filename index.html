@@ -11,83 +11,139 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <!-- Logo -->
-            <!-- Logo -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-pill">
             <a href="#hero" class="navbar-brand">
-                <img src="assets/new-logo.png" alt="Jerry Rodriguez Logo" class="navbar-logo-img">
+                <img src="assets/new-logo.png" alt="Bay Logo" class="navbar-logo-img">
             </a>
-
-            <!-- Navbar Toggler (untuk mobile) -->
-            <button class="navbar-toggler" id="navbar-toggler" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <!-- Theme Toggle Button -->
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                <i class="fas fa-sun"></i> <!-- Ikon default: matahari untuk mode terang -->
-            </button>
-
-            <!-- Navbar Menu -->
             <div class="navbar-menu" id="navbar-menu">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
                     <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
                     <li class="nav-item"><a href="#my-work-in-action" class="nav-link">My Work</a></li>
                     <li class="nav-item"><a href="#about" class="nav-link">About Me</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link"><button class="btn btn-nav-cta">Start Your Project</button></a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Start Your Project</a></li>
                 </ul>
+            </div>
+            <div class="navbar-right">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="navbar-toggler" id="navbar-toggler" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </nav>
 
-       <!-- Hero Section -->
+    <!-- Hero Section -->
     <header id="hero" class="hero-section">
         <div class="hero-wrapper">
-            <div class="hero-content">
+            <div class="hero-content reveal-left">
                 <p class="hero-subtitle">Hello, I am</p>
                 <h1 class="hero-title">Septiawan Bayu Prasetyo</h1>
-                <h2 class="hero-tagline">Web & UI/UX Designer</h2>
+                <h2 class="hero-tagline">Web &amp; UI/UX Designer</h2>
                 <p class="hero-description">Crafting intuitive and engaging digital experiences with a focus on clean design and user-centric solutions.</p>
                 <div class="hero-cta-buttons">
                     <a href="./assets/cv/Septiawan_Bayu_Prasetyo_CV.pdf" download class="btn btn-ghost">Download CV</a>
                     <a href="#portfolio" class="btn btn-primary">View My Work</a>
                 </div>
             </div>
-            <div class="hero-image-container">
-                <!-- Sisipkan placeholder untuk gambar profil Anda di sini -->
-                <img src="assets/profile-hero.jpg" alt="Bayu Prasetyo Profile Picture" class="hero-profile-pic">
+            <div class="hero-image-container reveal-right">
+                <img src="assets/profile_picture.jpeg" alt="Bayu Prasetyo Profile Picture" class="hero-profile-pic">
             </div>
         </div>
     </header>
+
     <!-- About Section -->
     <section id="about" class="about-section section-padding">
         <div class="container">
-            <h2 class="section-title">A little bit about me</h2>
-            <div class="about-grid">
-                <div class="about-image">
-                    <img src="assets/profile_picture.jpeg" alt="Profile Picture" class="profile-picture">
+            <div class="about-new-grid">
+                <div class="about-photo-wrap reveal-left">
+                    <img src="assets/IMG_5048.jpg" alt="Bayu Prasetyo" class="about-photo">
+                    <div class="about-photo-badge">
+                        <span class="badge-num">8+</span>
+                        <span class="badge-text">Years of<br>Experience</span>
+                    </div>
                 </div>
-                <div class="about-text">
-                    <h3>Hi, I’m Bayu Prasetyo, a dedicated Brand and Web Designer with a passion for transforming businesses through powerful design.</h3>
-                    <p>With over 8 years of experience across 10+ industries and 100+ successful projects, I specialize in creating modern, scalable brands and websites that drive business growth.</p>
-                    <div class="stats-container">
-                        <div class="stat-item">
-                            <span class="stat-number">8 +</span>
-                            <span class="stat-label">Years of Experience</span>
+                <div class="about-content reveal-right">
+                    <p class="about-eyebrow">A little bit about me</p>
+                    <h2 class="about-heading">Hi, I'm <span class="highlight">Bayu Prasetyo</span> — a dedicated Brand &amp; Web Designer.</h2>
+                    <p class="about-body">With a passion for transforming businesses through powerful design, I specialize in creating modern, scalable brands and websites that drive growth. Over 8 years across 10+ industries and 100+ successful projects.</p>
+                    <div class="about-stats">
+                        <div class="astat">
+                            <span class="astat-num">8+</span>
+                            <span class="astat-label">Years Experience</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">10 +</span>
-                            <span class="stat-label">Industries Served</span>
+                        <div class="astat">
+                            <span class="astat-num">10+</span>
+                            <span class="astat-label">Industries</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100 +</span>
-                            <span class="stat-label">Projects</span>
+                        <div class="astat">
+                            <span class="astat-num">100+</span>
+                            <span class="astat-label">Projects</span>
                         </div>
                     </div>
+                    <a href="#contact" class="btn btn-primary">Work With Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section section-padding">
+        <div class="container">
+            <p class="section-eyebrow reveal">My Expertise</p>
+            <h2 class="section-title reveal">Skills &amp; Tools</h2>
+            <div class="skills-grid reveal">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#001E36"/><text x="50" y="62" text-anchor="middle" font-size="38" font-family="serif" font-weight="bold" fill="#31A8FF">Ps</text></svg>
+                    </div>
+                    <span class="skill-name">Adobe Photoshop</span>
+                    <div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#330000"/><text x="50" y="62" text-anchor="middle" font-size="38" font-family="serif" font-weight="bold" fill="#FF9A00">Ai</text></svg>
+                    </div>
+                    <span class="skill-name">Adobe Illustrator</span>
+                    <div class="skill-bar"><div class="skill-fill" data-pct="88"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#00005B"/><text x="50" y="62" text-anchor="middle" font-size="38" font-family="serif" font-weight="bold" fill="#9999FF">Pr</text></svg>
+                    </div>
+                    <span class="skill-name">Adobe Premiere</span>
+                    <div class="skill-bar"><div class="skill-fill" data-pct="80"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#006B36"/><text x="50" y="65" text-anchor="middle" font-size="30" font-family="sans-serif" font-weight="bold" fill="#FFFFFF">CDR</text></svg>
+                    </div>
+                    <span class="skill-name">CorelDRAW</span>
+                    <div class="skill-bar"><div class="skill-fill" data-pct="82"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#000000"/><text x="50" y="65" text-anchor="middle" font-size="30" font-family="sans-serif" font-weight="bold" fill="#FFFFFF">Cap</text><text x="50" y="85" text-anchor="middle" font-size="14" font-family="sans-serif" fill="#00F2EA">Cut</text></svg>
+                    </div>
+                    <span class="skill-name">CapCut</span>
+                    <div class="skill-bar"><div class="skill-fill" data-pct="85"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#E44D26"/><text x="50" y="65" text-anchor="middle" font-size="36" font-family="sans-serif" font-weight="bold" fill="#FFFFFF">HTML</text></svg>
+                    </div>
+                    <span class="skill-name">HTML</span>
+                    <div class="skill-bar"><div class="skill-fill" data-pct="75"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#264DE4"/><text x="50" y="65" text-anchor="middle" font-size="38" font-family="sans-serif" font-weight="bold" fill="#FFFFFF">CSS</text></svg>
+                    </div>
+                    <span class="skill-name">CSS</span>
+                    <div class="skill-bar"><div class="skill-fill" data-pct="72"></div></div>
                 </div>
             </div>
         </div>
@@ -96,144 +152,81 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio-section section-padding">
         <div class="container">
-            <h2 class="section-title">Karya Pilihan</h2>
+            <h2 class="section-title reveal">Karya Pilihan</h2>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
+                <div class="portfolio-item reveal">
                     <img src="assets/placeholder-project1.jpg" alt="Project 1">
-                    <div class="portfolio-info">
-                        <h4>Project Alpha</h4>
-                        <p>Desain Grafis</p>
-                    </div>
+                    <div class="portfolio-info"><h4>Project Alpha</h4><p>Desain Grafis</p></div>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item reveal">
                     <img src="assets/placeholder-project2.jpg" alt="Project 2">
-                    <div class="portfolio-info">
-                        <h4>Project Beta</h4>
-                        <p>Video Editing</p>
-                    </div>
+                    <div class="portfolio-info"><h4>Project Beta</h4><p>Video Editing</p></div>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item reveal">
                     <img src="assets/placeholder-project3.jpg" alt="Project 3">
-                    <div class="portfolio-info">
-                        <h4>Project Gamma</h4>
-                        <p>Branding</p>
-                    </div>
+                    <div class="portfolio-info"><h4>Project Gamma</h4><p>Branding</p></div>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item reveal">
                     <img src="assets/placeholder-project4.jpg" alt="Project 4">
-                    <div class="portfolio-info">
-                        <h4>Project Delta</h4>
-                        <p>Content Creation</p>
-                    </div>
+                    <div class="portfolio-info"><h4>Project Delta</h4><p>Content Creation</p></div>
+                </div>
+                <div class="portfolio-item reveal">
+                    <img src="assets/dsg2.png" alt="Herb Garden Dinnerware Set">
+                    <div class="portfolio-info"><h4>Herb Garden Collection</h4><p>Desain Produk</p></div>
+                </div>
+                <div class="portfolio-item reveal">
+                    <img src="assets/dsg6.png" alt="Tropical Botanical Dinnerware">
+                    <div class="portfolio-info"><h4>Tropical Botanical Series</h4><p>Desain Produk</p></div>
                 </div>
             </div>
         </div>
     </section>
- <!-- Services Section -->
+
+    <!-- Services Section -->
     <section id="services" class="services-section section-padding">
         <div class="container">
-            <h2 class="section-title">Services</h2>
-            <p class="section-description">Here's how I've transformed brands and web experiences for clients across industries. Each project is a collaboration designed to exceed expectations and drive measurable results.</p>
-            
+            <h2 class="section-title reveal">Services</h2>
+            <p class="section-description reveal">Here's how I've transformed brands and web experiences for clients across industries. Each project is a collaboration designed to exceed expectations and drive measurable results.</p>
             <div class="services-grid">
-                <!-- Service Card 1: Brand Identity Design -->
-                <div class="service-item">
-                    <div class="service-visual">
-                        <img src="assets/service-brand-identity.jpg" alt="Brand Identity Design Visual">
-                    </div>
+                <div class="service-item reveal">
+                    <div class="service-visual"><img src="assets/service-brand-identity.jpg" alt="Brand Identity Design Visual"></div>
                     <div class="service-content">
                         <h3 class="service-title">Brand Identity Design</h3>
                         <p class="service-description">Creating compelling brand identities that attract your ideal customers and differentiate you from competitors.</p>
-                        <div class="service-tags">
-                            <span>Logos</span>
-                            <span>Brand Identity</span>
-                            <span>Mockups</span>
-                            <span>Strategy</span>
-                            <span>Brand Guides</span>
-                            <span>Social Media</span>
-                        </div>
+                        <div class="service-tags"><span>Logos</span><span>Brand Identity</span><span>Mockups</span><span>Strategy</span><span>Brand Guides</span><span>Social Media</span></div>
                     </div>
                 </div>
-
-                <!-- Service Card 2: Web Design & Development -->
-                <div class="service-item">
-                    <div class="service-visual">
-                        <img src="assets/service-web-design.jpg" alt="Web Design & Development Visual">
-                    </div>
+                <div class="service-item reveal">
+                    <div class="service-visual"><img src="assets/service-web-design.jpg" alt="Web Design & Development Visual"></div>
                     <div class="service-content">
-                        <h3 class="service-title">Web Design & Development</h3>
+                        <h3 class="service-title">Web Design &amp; Development</h3>
                         <p class="service-description">Crafting sleek, intuitive websites with Webflow. Tailored to engage, impress, and convert your audience.</p>
-                        <div class="service-tags">
-                            <span>Website Design</span>
-                            <span>Wireframing</span>
-                            <span>Sitemap</span>
-                            <span>Webflow Development</span>
-                            <span>SEO Optimization</span>
-                        </div>
+                        <div class="service-tags"><span>Website Design</span><span>Wireframing</span><span>Sitemap</span><span>Webflow Development</span><span>SEO Optimization</span></div>
                     </div>
                 </div>
-
-                <!-- Service Card 3: Brand & Web Optimization -->
-                <div class="service-item">
-                    <div class="service-visual">
-                        <img src="assets/service-optimization.jpg" alt="Brand & Web Optimization Visual">
-                    </div>
+                <div class="service-item reveal">
+                    <div class="service-visual"><img src="assets/service-optimization.jpg" alt="Brand & Web Optimization Visual"></div>
                     <div class="service-content">
-                        <h3 class="service-title">Brand & Web Optimization</h3>
+                        <h3 class="service-title">Brand &amp; Web Optimization</h3>
                         <p class="service-description">Ensuring your site stays up-to-date, secure, and fast. From technical tweaks to content updates on a monthly basis.</p>
-                        <div class="service-tags">
-                            <span>Monthly Maintenance</span>
-                            <span>Blog Design</span>
-                            <span>SEO Optimization</span>
-                            <span>Hosting</span>
-                            <span>Analytics</span>
-                        </div>
+                        <div class="service-tags"><span>Monthly Maintenance</span><span>Blog Design</span><span>SEO Optimization</span><span>Hosting</span><span>Analytics</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- My Work in Action Section --> 
-    <section id="my-work-in-action" class="work-in-action-section">
-        <div class="work-in-action-header">
-            <div class="container">
-                <h2 class="section-title">My Work in Action</h2>
-                <p class="work-in-action-description">Here's how I've transformed brands and web experiences for clients across industries. Each project is a collaboration designed to exceed expectations and drive measurable results.</p>
-            </div>
-        </div>
-        
-        <div class="work-in-action-project">
-            <div class="container">
-                <div class="project-showcase">
-                    <div class="project-details-column">
-                        <h3 class="project-title">Executive Parking Service</h3>
-                        <span class="project-tag">Brand + Web Redesign</span>
-                        <p class="project-description">Struggling with finding dependable parking solutions for your special events? With EXP, enjoy effortless valet and self-parking services tailored to your needs.</p>
-                        <a href="#" class="btn btn-primary-accent">Schedule Vault Now</a>
-                    </div>
-                    <div class="project-mockup-column">
-                        <div class="mockup-container">
-                            <img src="assets/mockup-desktop-exp.png" alt="Executive Parking Service Desktop Mockup" class="mockup-desktop">
-                            <img src="assets/mockup-mobile-exp.png" alt="Executive Parking Service Mobile Mockup" class="mockup-mobile">
-                        </div>
-                        <img src="assets/logo/exp_logo_green.png" alt="EXP Logo" class="project-logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <!-- My Work in Action Section -->
     <section id="my-work-in-action" class="work-in-action-section">
         <div class="work-in-action-header">
             <div class="container">
-                <h2 class="section-title">My Work in Action</h2>
-                <p class="work-in-action-description">Here's how I've transformed brands and web experiences for clients across industries. Each project is a collaboration designed to exceed expectations and drive measurable results.</p>
+                <h2 class="section-title reveal">My Work in Action</h2>
+                <p class="work-in-action-description reveal">Here's how I've transformed brands and web experiences for clients across industries. Each project is a collaboration designed to exceed expectations and drive measurable results.</p>
             </div>
         </div>
-        
         <div class="work-in-action-project">
             <div class="container">
-                <div class="project-showcase">
+                <div class="project-showcase reveal">
                     <div class="project-details-column">
                         <h3 class="project-title">Executive Parking Service</h3>
                         <span class="project-tag">Brand + Web Redesign</span>
@@ -255,18 +248,12 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section section-padding">
         <div class="container">
-            <h2 class="section-title">Hubungi Saya</h2>
-            <p class="contact-description">Tertarik untuk bekerja sama? Mari kita bicarakan proyek Anda.</p>
-            <form class="contact-form">
-                <div class="form-group">
-                    <input type="text" placeholder="Nama Anda" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Email Anda" required>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Pesan Anda" rows="5" required></textarea>
-                </div>
+            <h2 class="section-title reveal">Hubungi Saya</h2>
+            <p class="contact-description reveal">Tertarik untuk bekerja sama? Mari kita bicarakan proyek Anda.</p>
+            <form class="contact-form reveal">
+                <div class="form-group"><input type="text" placeholder="Nama Anda" required></div>
+                <div class="form-group"><input type="email" placeholder="Email Anda" required></div>
+                <div class="form-group"><textarea placeholder="Pesan Anda" rows="5" required></textarea></div>
                 <button type="submit" class="btn btn-primary">Kirim Pesan</button>
             </form>
         </div>
@@ -283,119 +270,103 @@
             </div>
         </div>
     </footer>
+
     <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" id="whatsapp-button" class="whatsapp-button show">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.557-3.842-1.557-5.879 0-6.566 5.334-11.899 11.901-11.899 3.232 0 6.227 1.241 8.413 3.426 2.188 2.188 3.424 5.183 3.424 8.414 0 6.565-5.333 11.898-11.901 11.898h-.003zm0 0h-.002c-1.446 0-2.887-.393-4.172-1.155l-4.224 1.127 1.196-4.142c-.815-1.12-1.258-2.457-1.258-3.794 0-5.467 4.436-9.904 9.904-9.904 2.697 0 5.207 1.047 7.072 2.912 1.864 1.864 2.911 4.375 2.911 7.071 0 5.467-4.436 9.904-9.903 9.904zm-7.915-4.865l.591-.353c1.393.841 3.016 1.309 4.678 1.309h.004c4.687 0 8.487-3.801 8.487-8.488 0-2.31-.906-4.47-2.545-6.109-1.639-1.638-3.799-2.545-6.11-2.545-4.687 0-8.487 3.801-8.487 8.488 0 1.639.467 3.262 1.309 4.654l-.382.593 1.13 3.914zm-.89-5.188s-.593-.89-.89-1.336c-.298-.445-1.196-1.782-1.196-3.327 0-3.136 2.545-5.681 5.681-5.681 1.545 0 2.99.605 4.093 1.708 1.103 1.103 1.709 2.548 1.709 4.093 0 3.135-2.545 5.681-5.681 5.681-1.545 0-2.99-.604-4.092-1.707zM17.02 12c-.287 0-.742-.162-.977-.282s-.754-.378-.874-.56c-.12-.18-.24-.316-.359-.451s-.12-.316-.04-.451c.08-.12.239-.316.319-.475.08-.16.08-.295 0-.43l-.319-.475c-.16-.24-.359-.316-.539-.316-.18 0-.398-.04-.638-.04-.238 0-.48-.04-.72-.04s-.638.2-.874.24c-.238.04-.477.16-.716.398s-.56.639-.838 1.199c-.28.56-.479 1.16-.638 1.639-.16.479-.319.499-.6.419s-.638-.239-1.237-.684c-.599-.444-1.178-.874-1.597-.977-.419-.12-.797-.08-1.076.08s-.754.519-1.073.898c-.32.359-.677.638-.874.874-.199.239-.398.319-.637.359s-.451.04-.688 0c-.238-.04-.594-.16-.954-.479-.359-.319-1.436-1.397-1.655-1.921-.2-.524-.16-.43 0-.71.16-.24.359-.451.539-.639.18-.18.359-.316.479-.436s.239-.24.359-.451c.12-.239.04-.451-.04-.639s-.754-1.878-1.033-2.557c-.239-.56-.479-.479-.677-.479-.199 0-.438-.04-.689-.04s-.56.04-.838.12c-.28.08-.6.316-.874.634-.28.319-1.076 1.034-1.076 
-html2.518 0 1.485 1.103 2.911 1.263 3.15 1.639 2.039 3.037 2.656 5.37 3.554 1.658.639 2.937.957 3.935.957 1.485 0 2.831-.499 3.934-1.339 1.103-.84 1.956-2.148 2.215-3.553.259-1.404.259-2.613.18-2.832-.08-.199-.279-.279-.56-.419z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.557-3.842-1.557-5.879 0-6.566 5.334-11.899 11.901-11.899 3.232 0 6.227 1.241 8.413 3.426 2.188 2.188 3.424 5.183 3.424 8.414 0 6.565-5.333 11.898-11.901 11.898h-.003c-1.446 0-2.887-.393-4.172-1.155l-4.224 1.127 1.196-4.142c-.815-1.12-1.258-2.457-1.258-3.794 0-5.467 4.436-9.904 9.904-9.904 2.697 0 5.207 1.047 7.072 2.912 1.864 1.864 2.911 4.375 2.911 7.071 0 5.467-4.436 9.904-9.903 9.904z"/></svg>
     </a>
     <button id="back-to-top" class="back-to-top">↑</button>
-     <script>
-         <!-- Scroll Animations Script -->
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.section-padding, .portfolio-section, .contact-section, .about-section'); // Target elemen yang ingin dianimasikan
-            const observerOptions = {
-                root: null, // viewport sebagai root
-                rootMargin: '0px',
-                threshold: 0.1 // Trigger animasi ketika 10% elemen terlihat
-            };
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        // Hentikan observer untuk elemen ini setelah sekali animasi
-                        // Jika ingin animasi berulang, hapus baris ini
-                        observer.unobserve(entry.target); 
-                    }
-                });
-            }, observerOptions);
-
-            sections.forEach(section => {
-                // Tambahkan kelas dasar ke setiap bagian yang akan dianimasikan
-                section.classList.add('scroll-animate', 'slide-up'); 
-                observer.observe(section);
-            });
-
-            // ... (Skrip lain seperti navbar, theme toggle, dll. tetap di sini) ...
-        });
-        // Toggle Navbar Menu on Mobile
-        const navbarToggler = document.getElementById('navbar-toggler');
-        const navbarMenu = document.getElementById('navbar-menu');
-
-        if (navbarToggler && navbarMenu) {
-            navbarToggler.addEventListener('click', () => {
-                navbarMenu.classList.toggle('active');
-                navbarToggler.classList.toggle('active'); // Juga toggle kelas pada toggler agar ikon berubah
-            });
-
-            // Opsional: Tutup menu jika mengklik tautan navigasi di dalamnya
-            const navLinks = navbarMenu.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    // Cek apakah menu aktif sebelum menutup
-                    if (navbarMenu.classList.contains('active')) {
-                        navbarMenu.classList.remove('active');
-                        navbarToggler.classList.remove('active');
-                    }
-                });
-            });
-        }
-
-        // Theme Toggle Script (sudah ada, pastikan tidak duplikat)
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const bodyElement = document.body;
-
-        const toggleTheme = () => {
-            bodyElement.classList.toggle('light-mode');
-            if (bodyElement.classList.contains('light-mode')) {
-                localStorage.setItem('theme', 'light');
-            } else {
-                localStorage.setItem('theme', 'dark');
-            }
-        };
-
-        themeToggleBtn.addEventListener('click', toggleTheme);
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'light') {
-                bodyElement.classList.add('light-mode');
-            } else {
-                bodyElement.classList.remove('light-mode');
+    <script>
+    // ── Scroll Reveal ──────────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
             }
         });
+    }, { threshold: 0.12 });
 
-        // Smooth Scrolling Script (jika Anda belum menerapkannya di CSS saja)
-        // Jika sudah menerapkan `scroll-behavior: smooth;` di CSS, script ini tidak perlu.
-        // Namun, terkadang menambahkan sedikit JS bisa memberikan kontrol lebih.
-        // Kita akan mengandalkan CSS `scroll-behavior` yang sudah ditambahkan.
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .skill-card, .portfolio-item, .service-item').forEach(el => {
+        revealObserver.observe(el);
+    });
 
-        // Back to Top Button Logic
-        const backToTopButton = document.getElementById('back-to-top');
-        if (backToTopButton) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) { // Tampilkan setelah menggulir 300px
-                    backToTopButton.classList.add('show');
-                } else {
-                    backToTopButton.classList.remove('show');
+    // ── Skill bar animation ────────────────────────────────────
+    const barObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const fill = entry.target.querySelector('.skill-fill');
+                if (fill) {
+                    const pct = fill.getAttribute('data-pct');
+                    fill.style.width = pct + '%';
                 }
-            });
+                barObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.skill-card').forEach(c => barObserver.observe(c));
 
-            backToTopButton.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
+    // ── Active nav link on scroll ──────────────────────────────
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(s => {
+            if (window.scrollY >= s.offsetTop - 120) current = s.id;
+        });
+        navLinks.forEach(l => {
+            l.classList.remove('active');
+            if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+        });
+    });
 
-        // WhatsApp Button Logic (pastikan ID sesuai)
-        const whatsappButton = document.getElementById('whatsapp-button');
-        // WhatsApp button is often always visible on mobile, or shown based on scroll
-        // Let's ensure it's displayed if it has the 'show' class (which it does by default in HTML)
-        if (whatsappButton && whatsappButton.classList.contains('show')) {
-            // No specific logic needed here unless you want it to appear/disappear
-        }
-        
+    // ── Navbar blur pill on scroll ─────────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // ── Mobile toggler ─────────────────────────────────────────
+    const toggler = document.getElementById('navbar-toggler');
+    const menu = document.getElementById('navbar-menu');
+    toggler?.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        toggler.classList.toggle('active');
+    });
+    menu?.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+        menu.classList.remove('active');
+        toggler.classList.remove('active');
+    }));
+
+    // ── Theme toggle ───────────────────────────────────────────
+    const themeBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') body.classList.add('light-mode');
+    themeBtn?.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+        localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : 'dark');
+    });
+
+    // ── Back to top ─────────────────────────────────────────────
+    const btt = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => btt?.classList.toggle('show', window.scrollY > 300));
+    btt?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ── Hero typewriter ────────────────────────────────────────
+    const tagline = document.querySelector('.hero-tagline');
+    if (tagline) {
+        const words = ['Web Designer', 'UI/UX Designer', 'Brand Designer', 'Visual Creator'];
+        let wi = 0, ci = 0, deleting = false;
+        const type = () => {
+            const word = words[wi];
+            tagline.textContent = deleting ? word.slice(0, ci--) : word.slice(0, ci++);
+            if (!deleting && ci > word.length) { deleting = true; setTimeout(type, 1400); return; }
+            if (deleting && ci < 0) { deleting = false; wi = (wi + 1) % words.length; ci = 0; }
+            setTimeout(type, deleting ? 60 : 100);
+        };
+        setTimeout(type, 800);
+    }
     </script>
 </body>
 </html>
