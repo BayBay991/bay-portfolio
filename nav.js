@@ -58,9 +58,26 @@ if (themeBtn) {
     themeBtn.querySelector('i').className = body.classList.contains('light-mode') ? 'fas fa-moon' : 'fas fa-sun';
 }
 
-// Back to top
+// Back to top + WhatsApp button visibility
 const btt = document.getElementById('back-to-top');
-window.addEventListener('scroll', () => btt?.classList.toggle('show', window.scrollY > 300));
+const waBtnFloat = document.getElementById('whatsapp-btn');
+
+function updateFloatingButtons() {
+    const scrolled = window.scrollY;
+    // Back to top: appears after scrolling 300px
+    btt?.classList.toggle('show', scrolled > 300);
+    // WhatsApp: always visible after slight scroll (100px) — or always if user hasn't scrolled at all on mobile
+    waBtnFloat?.classList.toggle('show', scrolled > 100 || window.innerWidth < 768);
+}
+
+// Show WA button immediately on mobile (small screens)
+if (window.innerWidth < 768 && waBtnFloat) {
+    waBtnFloat.classList.add('show');
+}
+
+window.addEventListener('scroll', updateFloatingButtons);
+updateFloatingButtons(); // Run once on load
+
 btt?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 // Hero typewriter (hanya di halaman yang punya .hero-tagline)

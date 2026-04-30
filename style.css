@@ -4,6 +4,17 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* ================================================================
+   CUSTOM FONT: Old Englished Boots
+   ================================================================ */
+@font-face {
+    font-family: 'OldEnglishedBoots';
+    src: url('assets/fonts/Old_Englished_Boots.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ================================================================
    THEME VARIABLES
    ================================================================ */
 :root {
@@ -18,6 +29,7 @@
     --shadow-color:  rgba(0,0,0,0.3);
     --font-primary:  'Montserrat', sans-serif;
     --font-secondary:'Playfair Display', serif;
+    --font-bay:      'OldEnglishedBoots', serif;
 }
 body.light-mode {
     --bg-primary:   #f4f7f6;
@@ -118,6 +130,9 @@ body:not(.light-mode) .navbar-pill {
     display: block;
     max-height: 32px;
     object-fit: contain;
+}
+body:not(.light-mode) .navbar-logo-img {
+    filter: invert(1);
 }
 
 /* Menu — tengah */
@@ -517,6 +532,7 @@ body:not(.light-mode) .navbar-toggler span { background: #bbb; }
 .mockup-container { position: relative; width: 100%; max-width: 440px; }
 .mockup-desktop, .mockup-mobile { width: 100%; height: auto; display: block; border-radius: 12px; }
 .project-logo { position: absolute; top: 20px; right: 20px; width: 70px; height: auto; opacity: 0.75; }
+body:not(.light-mode) .project-logo { filter: invert(1); opacity: 0.85; }
 
 /* ================================================================
    WORK FILTER
@@ -594,6 +610,8 @@ body:not(.light-mode) .navbar-toggler span { background: #bbb; }
 }
 .footer-logo img { height: 28px; width: auto; opacity: 0.7; transition: opacity 0.2s; }
 .footer-logo:hover img { opacity: 1; }
+body:not(.light-mode) .footer-logo img { filter: invert(1); opacity: 0.8; }
+body:not(.light-mode) .footer-logo:hover img { opacity: 1; }
 .social-icons { display: flex; gap: 1.2rem; }
 .social-icons a {
     color: var(--text-muted); font-size: 1.3rem;
@@ -602,31 +620,120 @@ body:not(.light-mode) .navbar-toggler span { background: #bbb; }
 .social-icons a:hover { color: var(--accent-blue); transform: translateY(-3px) scale(1.1); }
 
 /* ================================================================
-   FLOATING BUTTONS
+   FLOATING BUTTONS — WhatsApp & Back to Top
    ================================================================ */
-.whatsapp-button, .back-to-top {
-    position: fixed; bottom: 2rem; right: 2rem;
-    width: 48px; height: 48px; border-radius: 50%;
-    display: none; justify-content: center; align-items: center;
-    font-size: 1.4rem; color: #fff; cursor: pointer;
-    z-index: 999; box-shadow: 0 4px 12px var(--shadow-color);
-    transition: all 0.3s ease; text-decoration: none;
-    border: none; font-family: var(--font-primary);
-}
-.whatsapp-button.show, .back-to-top.show { display: flex; }
+
+/* WhatsApp floating button */
 .whatsapp-button {
-    background: rgba(37,211,102,0.75);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255,255,255,0.4);
-    bottom: 7rem;
+    position: fixed !important;
+    bottom: 5.5rem !important;
+    right: 1.5rem !important;
+    left: auto !important;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #25D366;
+    border: 2px solid rgba(255,255,255,0.3);
+    box-shadow: 0 4px 18px rgba(37,211,102,0.5), 0 2px 8px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 99999 !important;
+    /* hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease,
+                transform 0.25s ease, box-shadow 0.25s ease;
 }
-.whatsapp-button:hover { background: rgba(37,211,102,0.92); transform: translateY(-4px) scale(1.05); }
+.whatsapp-button.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+.whatsapp-button img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
+    pointer-events: none;
+}
+.whatsapp-button:hover {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 8px 24px rgba(37,211,102,0.6), 0 3px 10px rgba(0,0,0,0.35);
+    background: #20c05a;
+}
+
+/* Back to Top button */
 .back-to-top {
-    background: rgba(255,255,255,0.18);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255,255,255,0.35);
+    position: fixed !important;
+    bottom: 1.5rem !important;
+    right: 1.5rem !important;
+    left: auto !important;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #1c1c1e;
+    border: 2px solid rgba(255,255,255,0.18);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    z-index: 99999 !important;
+    /* hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease,
+                transform 0.25s ease, box-shadow 0.25s ease;
 }
-.back-to-top:hover { background: rgba(255,255,255,0.30); transform: translateY(-4px) scale(1.05); }
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+.back-to-top:hover {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.55);
+    background: #2d2d30;
+}
+/* Light mode */
+body.light-mode .back-to-top {
+    background: #ffffff;
+    color: #1c1c1e;
+    border-color: rgba(0,0,0,0.15);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+}
+body.light-mode .back-to-top:hover {
+    background: #f0f0f0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+/* Mobile: slightly smaller, tighter margin */
+@media (max-width: 480px) {
+    .whatsapp-button {
+        width: 46px;
+        height: 46px;
+        bottom: 5rem !important;
+        right: 1rem !important;
+    }
+    .back-to-top {
+        width: 46px;
+        height: 46px;
+        bottom: 1rem !important;
+        right: 1rem !important;
+        font-size: 1.1rem;
+    }
+}
+
 
 /* ================================================================
    SCROLL REVEAL
@@ -646,6 +753,7 @@ body:not(.light-mode) .navbar-toggler span { background: #bbb; }
    ================================================================ */
 @media (max-width: 800px) {
     .navbar { padding: 10px 12px; }
+    .navbar-pill { justify-content: space-between; }
     .navbar-toggler { display: flex; }
     .navbar-menu {
         display: none;
@@ -702,17 +810,17 @@ body:not(.light-mode) .navbar-toggler span { background: #bbb; }
     display: flex;
     gap: 1rem;
     align-items: flex-start;
-    background: var(--card-bg, #f8f8f8);
-    border: 1px solid var(--border-color, #e5e5e5);
+    background: var(--bg-secondary);
+    border: 1px solid rgba(128,128,128,0.2);
     border-radius: 12px;
     padding: 1rem 1.2rem;
     transition: box-shadow 0.2s;
 }
-.skill-pillar:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.skill-pillar:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
 .pillar-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
-.skill-pillar strong { display: block; font-size: 0.95rem; margin-bottom: 0.25rem; }
-.skill-pillar p { margin: 0; font-size: 0.85rem; line-height: 1.5; opacity: 0.75; }
-.inline-link { color: var(--accent, #6366f1); text-decoration: underline; }
+.skill-pillar strong { display: block; font-size: 0.95rem; margin-bottom: 0.25rem; color: var(--text-main); }
+.skill-pillar p { margin: 0; font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); }
+.inline-link { color: var(--accent-blue); text-decoration: underline; }
 
 /* -- Skills Category Label -- */
 .skills-category-label {
@@ -720,8 +828,9 @@ body:not(.light-mode) .navbar-toggler span { background: #bbb; }
     font-weight: 700;
     margin: 2rem 0 1rem;
     padding: 0.4rem 0;
-    border-bottom: 2px solid var(--border-color, #e5e5e5);
+    border-bottom: 2px solid rgba(128,128,128,0.25);
     letter-spacing: 0.02em;
+    color: var(--text-main);
 }
 
 /* ================================================================
@@ -752,9 +861,9 @@ body:not(.light-mode) .experience-section { background: rgba(255,255,255,0.02); 
 .tl-dot {
     width: 16px; height: 16px;
     border-radius: 50%;
-    background: var(--accent, #6366f1);
-    border: 3px solid var(--bg, #fff);
-    box-shadow: 0 0 0 2px var(--accent, #6366f1);
+    background: var(--accent-blue);
+    border: 3px solid var(--bg-primary);
+    box-shadow: 0 0 0 2px var(--accent-blue);
     flex-shrink: 0;
     margin-top: 6px;
     transition: transform 0.2s;
@@ -775,15 +884,15 @@ body:not(.light-mode) .experience-section { background: rgba(255,255,255,0.02); 
 .tl-line {
     width: 2px;
     flex: 1;
-    background: linear-gradient(to bottom, var(--accent, #6366f1) 0%, rgba(99,102,241,0.15) 100%);
+    background: linear-gradient(to bottom, var(--accent-blue) 0%, rgba(52,152,219,0.15) 100%);
     margin: 6px 0;
     min-height: 40px;
 }
 
 /* -- Card -- */
 .timeline-card {
-    background: var(--card-bg, #fff);
-    border: 1px solid var(--border-color, #e5e5e5);
+    background: var(--bg-secondary);
+    border: 1px solid rgba(128,128,128,0.2);
     border-radius: 14px;
     padding: 1.2rem 1.5rem;
     margin-bottom: 1.5rem;
@@ -794,7 +903,7 @@ body:not(.light-mode) .experience-section { background: rgba(255,255,255,0.02); 
     gap: 0.35rem;
 }
 .timeline-card:hover {
-    box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
     transform: translateX(4px);
 }
 .tl-role {
@@ -802,18 +911,18 @@ body:not(.light-mode) .experience-section { background: rgba(255,255,255,0.02); 
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--accent, #6366f1);
+    color: var(--accent-blue);
 }
 .tl-company {
     font-size: 1.15rem;
     font-weight: 800;
     margin: 0;
-    color: var(--text-primary, #111);
+    color: var(--text-main);
     line-height: 1.3;
 }
 .tl-period, .tl-location {
     font-size: 0.82rem;
-    color: var(--text-muted, #888);
+    color: var(--text-muted);
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -838,5 +947,8 @@ body:not(.light-mode) .tl-dot        { border-color: var(--bg-dark, #0e0e0e); }
 body:not(.light-mode) .tl-company    { color: #f1f1f1; }
 body:not(.light-mode) .tl-period,
 body:not(.light-mode) .tl-location   { color: #aaa; }
+
+
+
 
 
