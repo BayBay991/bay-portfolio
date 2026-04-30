@@ -1,372 +1,126 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Bay</title>
+    <title>Bay — Web & UI/UX Designer</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="navbar-pill">
-            <a href="#hero" class="navbar-brand">
+            <a href="index.html" class="navbar-brand">
                 <img src="assets/new-logo.png" alt="Bay Logo" class="navbar-logo-img">
             </a>
             <div class="navbar-menu" id="navbar-menu">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="#my-work-in-action" class="nav-link">My Work</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link">About Me</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Start Your Project</a></li>
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="work.html" class="nav-link">My Work</a></li>
+                    <li><a href="about.html" class="nav-link">About Me</a></li>
+                    <li><a href="contact.html" class="nav-link nav-cta">Start Your Project</a></li>
                 </ul>
             </div>
             <div class="navbar-right">
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-sun"></i>
-                </button>
-                <button class="navbar-toggler" id="navbar-toggler" aria-label="Toggle navigation">
-                    <span></span><span></span><span></span>
-                </button>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+                <button class="navbar-toggler" id="navbar-toggler"><span></span><span></span><span></span></button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="hero" class="hero-section">
+    <header class="hero-section">
         <div class="hero-wrapper">
             <div class="hero-content reveal-left">
                 <p class="hero-subtitle">Hello, I am</p>
-                <h1 class="hero-title">Septiawan Bayu Prasetyo</h1>
+                <h1 class="hero-title">Septiawan<br>Bayu Prasetyo</h1>
                 <h2 class="hero-tagline">Web &amp; UI/UX Designer</h2>
                 <p class="hero-description">Crafting intuitive and engaging digital experiences with a focus on clean design and user-centric solutions.</p>
                 <div class="hero-cta-buttons">
-                    <a href="./assets/cv/Septiawan_Bayu_Prasetyo_CV.pdf" download class="btn btn-ghost">Download CV</a>
-                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                    <a href="assets/cv/Septiawan_Bayu_Prasetyo_CV.pdf" download class="btn btn-ghost">Download CV</a>
+                    <a href="work.html" class="btn btn-primary">View My Work</a>
                 </div>
             </div>
             <div class="hero-image-container reveal-right">
-                <img src="assets/profile_picture.jpeg" alt="Bayu Prasetyo Profile Picture" class="hero-profile-pic">
+                <img src="assets/profile_picture.jpeg" alt="Bayu Prasetyo" class="hero-profile-pic">
             </div>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="about-section section-padding">
+    <!-- Quick preview skills di home -->
+    <section class="home-skills-preview section-padding">
         <div class="container">
-            <div class="about-new-grid">
-                <div class="about-photo-wrap reveal-left">
-                    <img src="assets/IMG_5048.jpg" alt="Bayu Prasetyo" class="about-photo">
-                    <div class="about-photo-badge">
-                        <span class="badge-num">8+</span>
-                        <span class="badge-text">Years of<br>Experience</span>
-                    </div>
-                </div>
-                <div class="about-content reveal-right">
-                    <p class="about-eyebrow">A little bit about me</p>
-                    <h2 class="about-heading">Hi, I'm <span class="highlight">Bayu Prasetyo</span> — a dedicated Brand &amp; Web Designer.</h2>
-                    <p class="about-body">With a passion for transforming businesses through powerful design, I specialize in creating modern, scalable brands and websites that drive growth. Over 8 years across 10+ industries and 100+ successful projects.</p>
-                    <div class="about-stats">
-                        <div class="astat">
-                            <span class="astat-num">8+</span>
-                            <span class="astat-label">Years Experience</span>
-                        </div>
-                        <div class="astat">
-                            <span class="astat-num">10+</span>
-                            <span class="astat-label">Industries</span>
-                        </div>
-                        <div class="astat">
-                            <span class="astat-num">100+</span>
-                            <span class="astat-label">Projects</span>
-                        </div>
-                    </div>
-                    <a href="#contact" class="btn btn-primary">Work With Me</a>
-                </div>
+            <p class="section-eyebrow reveal">What I Do</p>
+            <h2 class="section-title reveal">Services Overview</h2>
+            <div class="home-services-row">
+                <a href="services.html" class="home-service-card reveal">
+                    <div class="hsc-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Brand Identity</h3>
+                    <p>Logos, brand guides, mockups & social media kits.</p>
+                </a>
+                <a href="services.html" class="home-service-card reveal">
+                    <div class="hsc-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Web Design</h3>
+                    <p>Sleek, intuitive websites built to convert.</p>
+                </a>
+                <a href="services.html" class="home-service-card reveal">
+                    <div class="hsc-icon"><i class="fas fa-film"></i></div>
+                    <h3>Video Editing</h3>
+                    <p>Engaging visual content with Adobe Premiere & CapCut.</p>
+                </a>
+                <a href="services.html" class="home-service-card reveal">
+                    <div class="hsc-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Optimization</h3>
+                    <p>Monthly maintenance, SEO & performance tuning.</p>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section section-padding">
+    <!-- Mini portfolio preview -->
+    <section class="home-work-preview section-padding">
         <div class="container">
-            <p class="section-eyebrow reveal">My Expertise</p>
-            <h2 class="section-title reveal">Skills &amp; Tools</h2>
-            <div class="skills-grid reveal">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#001E36"/><text x="50" y="62" text-anchor="middle" font-size="38" font-family="serif" font-weight="bold" fill="#31A8FF">Ps</text></svg>
-                    </div>
-                    <span class="skill-name">Adobe Photoshop</span>
-                    <div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#330000"/><text x="50" y="62" text-anchor="middle" font-size="38" font-family="serif" font-weight="bold" fill="#FF9A00">Ai</text></svg>
-                    </div>
-                    <span class="skill-name">Adobe Illustrator</span>
-                    <div class="skill-bar"><div class="skill-fill" data-pct="88"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#00005B"/><text x="50" y="62" text-anchor="middle" font-size="38" font-family="serif" font-weight="bold" fill="#9999FF">Pr</text></svg>
-                    </div>
-                    <span class="skill-name">Adobe Premiere</span>
-                    <div class="skill-bar"><div class="skill-fill" data-pct="80"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#006B36"/><text x="50" y="65" text-anchor="middle" font-size="30" font-family="sans-serif" font-weight="bold" fill="#FFFFFF">CDR</text></svg>
-                    </div>
-                    <span class="skill-name">CorelDRAW</span>
-                    <div class="skill-bar"><div class="skill-fill" data-pct="82"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#000000"/><text x="50" y="65" text-anchor="middle" font-size="30" font-family="sans-serif" font-weight="bold" fill="#FFFFFF">Cap</text><text x="50" y="85" text-anchor="middle" font-size="14" font-family="sans-serif" fill="#00F2EA">Cut</text></svg>
-                    </div>
-                    <span class="skill-name">CapCut</span>
-                    <div class="skill-bar"><div class="skill-fill" data-pct="85"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#E44D26"/><text x="50" y="65" text-anchor="middle" font-size="36" font-family="sans-serif" font-weight="bold" fill="#FFFFFF">HTML</text></svg>
-                    </div>
-                    <span class="skill-name">HTML</span>
-                    <div class="skill-bar"><div class="skill-fill" data-pct="75"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="18" fill="#264DE4"/><text x="50" y="65" text-anchor="middle" font-size="38" font-family="sans-serif" font-weight="bold" fill="#FFFFFF">CSS</text></svg>
-                    </div>
-                    <span class="skill-name">CSS</span>
-                    <div class="skill-bar"><div class="skill-fill" data-pct="72"></div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio-section section-padding">
-        <div class="container">
+            <p class="section-eyebrow reveal">Selected Work</p>
             <h2 class="section-title reveal">Karya Pilihan</h2>
             <div class="portfolio-grid">
                 <div class="portfolio-item reveal">
-                    <img src="assets/placeholder-project1.jpg" alt="Project 1">
-                    <div class="portfolio-info"><h4>Project Alpha</h4><p>Desain Grafis</p></div>
-                </div>
-                <div class="portfolio-item reveal">
-                    <img src="assets/placeholder-project2.jpg" alt="Project 2">
-                    <div class="portfolio-info"><h4>Project Beta</h4><p>Video Editing</p></div>
-                </div>
-                <div class="portfolio-item reveal">
-                    <img src="assets/placeholder-project3.jpg" alt="Project 3">
-                    <div class="portfolio-info"><h4>Project Gamma</h4><p>Branding</p></div>
-                </div>
-                <div class="portfolio-item reveal">
-                    <img src="assets/placeholder-project4.jpg" alt="Project 4">
-                    <div class="portfolio-info"><h4>Project Delta</h4><p>Content Creation</p></div>
-                </div>
-                <div class="portfolio-item reveal">
-                    <img src="assets/dsg2.png" alt="Herb Garden Dinnerware Set">
+                    <img src="assets/dsg2.png" alt="Herb Garden Collection">
                     <div class="portfolio-info"><h4>Herb Garden Collection</h4><p>Desain Produk</p></div>
                 </div>
                 <div class="portfolio-item reveal">
-                    <img src="assets/dsg6.png" alt="Tropical Botanical Dinnerware">
+                    <img src="assets/dsg6.png" alt="Tropical Botanical">
                     <div class="portfolio-info"><h4>Tropical Botanical Series</h4><p>Desain Produk</p></div>
                 </div>
+                <div class="portfolio-item reveal">
+                    <img src="assets/placeholder-project1.jpg" alt="Project Alpha">
+                    <div class="portfolio-info"><h4>Project Alpha</h4><p>Desain Grafis</p></div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem;">
+                <a href="work.html" class="btn btn-primary reveal">See All Work</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services-section section-padding">
-        <div class="container">
-            <h2 class="section-title reveal">Services</h2>
-            <p class="section-description reveal">Here's how I've transformed brands and web experiences for clients across industries. Each project is a collaboration designed to exceed expectations and drive measurable results.</p>
-            <div class="services-grid">
-                <div class="service-item reveal">
-                    <div class="service-visual"><img src="assets/service-brand-identity.jpg" alt="Brand Identity Design Visual"></div>
-                    <div class="service-content">
-                        <h3 class="service-title">Brand Identity Design</h3>
-                        <p class="service-description">Creating compelling brand identities that attract your ideal customers and differentiate you from competitors.</p>
-                        <div class="service-tags"><span>Logos</span><span>Brand Identity</span><span>Mockups</span><span>Strategy</span><span>Brand Guides</span><span>Social Media</span></div>
-                    </div>
-                </div>
-                <div class="service-item reveal">
-                    <div class="service-visual"><img src="assets/service-web-design.jpg" alt="Web Design & Development Visual"></div>
-                    <div class="service-content">
-                        <h3 class="service-title">Web Design &amp; Development</h3>
-                        <p class="service-description">Crafting sleek, intuitive websites with Webflow. Tailored to engage, impress, and convert your audience.</p>
-                        <div class="service-tags"><span>Website Design</span><span>Wireframing</span><span>Sitemap</span><span>Webflow Development</span><span>SEO Optimization</span></div>
-                    </div>
-                </div>
-                <div class="service-item reveal">
-                    <div class="service-visual"><img src="assets/service-optimization.jpg" alt="Brand & Web Optimization Visual"></div>
-                    <div class="service-content">
-                        <h3 class="service-title">Brand &amp; Web Optimization</h3>
-                        <p class="service-description">Ensuring your site stays up-to-date, secure, and fast. From technical tweaks to content updates on a monthly basis.</p>
-                        <div class="service-tags"><span>Monthly Maintenance</span><span>Blog Design</span><span>SEO Optimization</span><span>Hosting</span><span>Analytics</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- My Work in Action Section -->
-    <section id="my-work-in-action" class="work-in-action-section">
-        <div class="work-in-action-header">
-            <div class="container">
-                <h2 class="section-title reveal">My Work in Action</h2>
-                <p class="work-in-action-description reveal">Here's how I've transformed brands and web experiences for clients across industries. Each project is a collaboration designed to exceed expectations and drive measurable results.</p>
-            </div>
-        </div>
-        <div class="work-in-action-project">
-            <div class="container">
-                <div class="project-showcase reveal">
-                    <div class="project-details-column">
-                        <h3 class="project-title">Executive Parking Service</h3>
-                        <span class="project-tag">Brand + Web Redesign</span>
-                        <p class="project-description">Struggling with finding dependable parking solutions for your special events? With EXP, enjoy effortless valet and self-parking services tailored to your needs.</p>
-                        <a href="#" class="btn btn-primary-accent">Schedule Vault Now</a>
-                    </div>
-                    <div class="project-mockup-column">
-                        <div class="mockup-container">
-                            <img src="assets/mockup-desktop-exp.png" alt="Executive Parking Service Desktop Mockup" class="mockup-desktop">
-                            <img src="assets/mockup-mobile-exp.png" alt="Executive Parking Service Mobile Mockup" class="mockup-mobile">
-                        </div>
-                        <img src="assets/logo/exp_logo_green.png" alt="EXP Logo" class="project-logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section section-padding">
-        <div class="container">
-            <h2 class="section-title reveal">Hubungi Saya</h2>
-            <p class="contact-description reveal">Tertarik untuk bekerja sama? Mari kita bicarakan proyek Anda.</p>
-            <form class="contact-form reveal">
-                <div class="form-group"><input type="text" placeholder="Nama Anda" required></div>
-                <div class="form-group"><input type="email" placeholder="Email Anda" required></div>
-                <div class="form-group"><textarea placeholder="Pesan Anda" rows="5" required></textarea></div>
-                <button type="submit" class="btn btn-primary">Kirim Pesan</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="container footer-inner">
+            <a href="index.html" class="footer-logo"><img src="assets/new-logo.png" alt="Bay"></a>
             <p>&copy; 2026 Bay. All rights reserved.</p>
             <div class="social-icons">
                 <a href="https://www.instagram.com/bayu.prstyo_/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.tiktok.com/@bayu.prstyo_" target="_blank"><i class="fab fa-tiktok"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" id="whatsapp-button" class="whatsapp-button show">
+    <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" class="whatsapp-button show">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.557-3.842-1.557-5.879 0-6.566 5.334-11.899 11.901-11.899 3.232 0 6.227 1.241 8.413 3.426 2.188 2.188 3.424 5.183 3.424 8.414 0 6.565-5.333 11.898-11.901 11.898h-.003c-1.446 0-2.887-.393-4.172-1.155l-4.224 1.127 1.196-4.142c-.815-1.12-1.258-2.457-1.258-3.794 0-5.467 4.436-9.904 9.904-9.904 2.697 0 5.207 1.047 7.072 2.912 1.864 1.864 2.911 4.375 2.911 7.071 0 5.467-4.436 9.904-9.903 9.904z"/></svg>
     </a>
     <button id="back-to-top" class="back-to-top">↑</button>
-
-    <script>
-    // ── Scroll Reveal ──────────────────────────────────────────
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .skill-card, .portfolio-item, .service-item').forEach(el => {
-        revealObserver.observe(el);
-    });
-
-    // ── Skill bar animation ────────────────────────────────────
-    const barObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const fill = entry.target.querySelector('.skill-fill');
-                if (fill) {
-                    const pct = fill.getAttribute('data-pct');
-                    fill.style.width = pct + '%';
-                }
-                barObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.4 });
-    document.querySelectorAll('.skill-card').forEach(c => barObserver.observe(c));
-
-    // ── Active nav link on scroll ──────────────────────────────
-    const sections = document.querySelectorAll('section[id], header[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(s => {
-            if (window.scrollY >= s.offsetTop - 120) current = s.id;
-        });
-        navLinks.forEach(l => {
-            l.classList.remove('active');
-            if (l.getAttribute('href') === '#' + current) l.classList.add('active');
-        });
-    });
-
-    // ── Navbar blur pill on scroll ─────────────────────────────
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 40);
-    });
-
-    // ── Mobile toggler ─────────────────────────────────────────
-    const toggler = document.getElementById('navbar-toggler');
-    const menu = document.getElementById('navbar-menu');
-    toggler?.addEventListener('click', () => {
-        menu.classList.toggle('active');
-        toggler.classList.toggle('active');
-    });
-    menu?.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
-        menu.classList.remove('active');
-        toggler.classList.remove('active');
-    }));
-
-    // ── Theme toggle ───────────────────────────────────────────
-    const themeBtn = document.getElementById('theme-toggle');
-    const body = document.body;
-    const saved = localStorage.getItem('theme');
-    if (saved === 'light') body.classList.add('light-mode');
-    themeBtn?.addEventListener('click', () => {
-        body.classList.toggle('light-mode');
-        localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : 'dark');
-    });
-
-    // ── Back to top ─────────────────────────────────────────────
-    const btt = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => btt?.classList.toggle('show', window.scrollY > 300));
-    btt?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // ── Hero typewriter ────────────────────────────────────────
-    const tagline = document.querySelector('.hero-tagline');
-    if (tagline) {
-        const words = ['Web Designer', 'UI/UX Designer', 'Brand Designer', 'Visual Creator'];
-        let wi = 0, ci = 0, deleting = false;
-        const type = () => {
-            const word = words[wi];
-            tagline.textContent = deleting ? word.slice(0, ci--) : word.slice(0, ci++);
-            if (!deleting && ci > word.length) { deleting = true; setTimeout(type, 1400); return; }
-            if (deleting && ci < 0) { deleting = false; wi = (wi + 1) % words.length; ci = 0; }
-            setTimeout(type, deleting ? 60 : 100);
-        };
-        setTimeout(type, 800);
-    }
-    </script>
+    <script src="nav.js"></script>
 </body>
 </html>
+
